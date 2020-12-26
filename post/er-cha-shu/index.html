@@ -1,20 +1,13 @@
-<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" >
-
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>二叉树操作 | SuoNi&#39;blog</title>
-
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://NCUczy.github.io/favicon.ico?v=1608999802827">
+<link rel="shortcut icon" href="https://NCUczy.github.io/favicon.ico?v=1609000952479">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://NCUczy.github.io/styles/main.css">
-
-
-
-<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<link rel="alternate" type="application/atom+xml" title="二叉树操作 | SuoNi&#39;blog - Atom Feed" href="https://NCUczy.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
 
@@ -26,81 +19,86 @@
 接下来我们进行问题分析，对于树的深度与宽度，可以通过累加进行分层求和，最后输出即可。
 而结点之间的距离，应该是爬树的操作，这里注意到了题意体现的左右子树的各自..." />
     <meta name="keywords" content="笔记" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
   </head>
   <body>
-    <div id="app" class="main">
-
-      <div class="sidebar" :class="{ 'full-height': menuVisible }">
-  <div class="top-container" data-aos="fade-right">
-    <div class="top-header-container">
-      <a class="site-title-container" href="https://NCUczy.github.io">
-        <img src="https://NCUczy.github.io/images/avatar.png?v=1608999802827" class="site-logo">
-        <h1 class="site-title">SuoNi&#39;blog</h1>
-      </a>
-      <div class="menu-btn" @click="menuVisible = !menuVisible">
-        <div class="line"></div>
-      </div>
-    </div>
-    <div>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://NCUczy.github.io">
+  <img class="avatar" src="https://NCUczy.github.io/images/avatar.png?v=1609000952479" alt="">
+  </a>
+  <h1 class="site-title">
+    SuoNi&#39;blog
+  </h1>
+  <p class="site-description">
+    自强不息，正位凝命。
+  </p>
+  <div class="menu-container">
+    
       
-        
-          <a href="/" class="site-nav">
-            首页
-          </a>
-        
+        <a href="/" class="menu">
+          首页
+        </a>
       
-        
-          <a href="/archives" class="site-nav">
-            归档
-          </a>
-        
+    
       
-        
-          <a href="/tags" class="site-nav">
-            标签
-          </a>
-        
+        <a href="/archives" class="menu">
+          归档
+        </a>
       
-        
-          <a href="/post/about" class="site-nav">
-            关于
-          </a>
-        
+    
       
-    </div>
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
   </div>
-  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
-    <div class="social-container">
+  <div class="social-container">
+    
       
-        
+    
       
-        
+    
       
-        
+    
       
-        
+    
       
-        
-      
-    </div>
-    <div class="site-description">
-      自强不息，正位凝命。
-    </div>
-    <div class="site-footer">
-      所溺大魔王 | <a class="rss" href="https://NCUczy.github.io/atom.xml" target="_blank">RSS</a>
-    </div>
+    
   </div>
 </div>
 
-
-      <div class="main-container">
-        <div class="content-container" data-aos="fade-up">
-          <div class="post-detail">
-            <h2 class="post-title">二叉树操作</h2>
-            <div class="post-date">2020-12-26</div>
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              二叉树操作
+            </h2>
+            <div class="post-info">
+              <span>
+                2020-12-26
+              </span>
+              <span>
+                2 min read
+              </span>
+              
+                <a href="https://NCUczy.github.io/tag/TQUl7kQkm/" class="post-tag">
+                  # 笔记
+                </a>
+              
+            </div>
             
-            <div class="post-content" v-pre>
-              <h3 id="二叉树的简单操作">二叉树的简单操作</h3>
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <h3 id="二叉树的简单操作">二叉树的简单操作</h3>
 <p>树深树广结点距离的简单例题</p>
 <figure data-type="image" tabindex="1"><img src="https://i.loli.net/2020/12/13/cyQJiYS2nOrub7h.png" alt="" loading="lazy"></figure>
 <p>类似这样的描述，进行建树求解。</p>
@@ -144,49 +142,79 @@ int main(){
 </code></pre>
 <figure data-type="image" tabindex="3"><img src="https://i.loli.net/2020/12/13/qyxrmUNlSRtBGfQ.png" alt="" loading="lazy"></figure>
 
-            </div>
-            
-              <div class="tag-container">
-                
-                  <a href="https://NCUczy.github.io/tag/TQUl7kQkm/" class="tag">
-                    笔记
-                  </a>
-                
               </div>
-            
-            
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E7%AE%80%E5%8D%95%E6%93%8D%E4%BD%9C">二叉树的简单操作</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#code"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>c</mi><mi>o</mi><mi>d</mi><mi>e</mi></mrow><annotation encoding="application/x-tex">code</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">c</span><span class="mord mathdefault">o</span><span class="mord mathdefault">d</span><span class="mord mathdefault">e</span></span></span></span></a></li>
+</ul>
 
-            
-
-          </div>
-
+              </div>
+            </div>
+          </article>
         </div>
+
+        
+
+        
+
+        <div class="site-footer">
+  所溺大魔王
+  <a class="rss" href="https://NCUczy.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
       </div>
     </div>
 
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-<script type="application/javascript">
+    <script>
+      hljs.initHighlightingOnLoad()
 
-AOS.init();
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
 
-var app = new Vue({
-  el: '#app',
-  data: {
-    menuVisible: false,
-  },
-})
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
 
-</script>
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
 
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
 
-  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
-  <script>
-    hljs.initHighlightingOnLoad()
-  </script>
-
-
-
-
-
+    </script>
   </body>
 </html>
