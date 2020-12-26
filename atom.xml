@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://NCUczy.github.io</id>
     <title>SuoNi&apos;blog</title>
-    <updated>2020-12-26T14:54:07.317Z</updated>
+    <updated>2020-12-26T15:28:53.613Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://NCUczy.github.io"/>
     <link rel="self" href="https://NCUczy.github.io/atom.xml"/>
@@ -10,4 +10,55 @@
     <logo>https://NCUczy.github.io/images/avatar.png</logo>
     <icon>https://NCUczy.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, SuoNi&apos;blog</rights>
+    <entry>
+        <title type="html"><![CDATA[二叉树操作]]></title>
+        <id>https://NCUczy.github.io/post/er-cha-shu/</id>
+        <link href="https://NCUczy.github.io/post/er-cha-shu/">
+        </link>
+        <updated>2020-12-26T15:26:17.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="二叉树的简单操作">二叉树的简单操作</h3>
+<p>树深树广结点距离的简单例题</p>
+<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2020/12/13/cyQJiYS2nOrub7h.png" alt="" loading="lazy"></figure>
+<p>类似这样的描述，进行建树求解。</p>
+<figure data-type="image" tabindex="2"><img src="https://i.loli.net/2020/12/13/fdyox3ERDLPekap.png" alt="" loading="lazy"></figure>
+<p>接下来我们进行问题分析，对于树的深度与宽度，可以通过累加进行分层求和，最后输出即可。</p>
+<p>而结点之间的距离，应该是爬树的操作，这里注意到了题意体现的左右子树的各自高度，</p>
+<p>处理方法也不同，所以用dfs向上搜索，直到u，v到达根节点的位置，统计disu，disv的长度，</p>
+<p>并且计算，在深搜边界进行输出结果即可。</p>
+<h1 id="code"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>c</mi><mi>o</mi><mi>d</mi><mi>e</mi></mrow><annotation encoding="application/x-tex">code</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">c</span><span class="mord mathdefault">o</span><span class="mord mathdefault">d</span><span class="mord mathdefault">e</span></span></span></span></h1>
+<pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;//磅礴大气头文件
+using namespace std;
+int f[101],w[101],d[101];//分别代表，父节点，宽度，深度
+int disu,disv,maxw,maxd;//左子树的路径长度，右子树的路径长度，最宽值，最深值
+void dfs(int u,int v){
+	if(u==v){
+		cout&lt;&lt;disu*2+disv&lt;&lt;endl;
+		return;//深搜边界
+	}
+	if(d[u]==d[v])u=f[u],v=f[v],disu++,disv++;//两边同时爬树
+	else if(d[u]&gt;d[v])u=f[u],disu++;//左深左爬
+		else v=f[v],disv++;//右深右爬
+		dfs(u,v);//深搜父节点
+}
+int main(){
+	int n;cin&gt;&gt;n;
+	int u,v;
+	d[1]=1;
+	for(int i=1;i&lt;=n-1;i++){
+		cin&gt;&gt;u&gt;&gt;v;
+		f[v]=u;//储存父节点
+		d[v]=d[u]+1;//深度加深
+		w[d[v]]++;//以层为序，累加宽度
+		maxw=max(maxw,w[d[v]]);//求极值
+		maxd=max(maxd,d[v]);//+1
+	}
+	cin&gt;&gt;u&gt;&gt;v;//hhhh
+	cout&lt;&lt;maxd&lt;&lt;endl&lt;&lt;maxw&lt;&lt;endl;
+	dfs(u,v);//深搜调用
+	return 0;
+}//完结撒花QWQ
+</code></pre>
+<figure data-type="image" tabindex="3"><img src="https://i.loli.net/2020/12/13/qyxrmUNlSRtBGfQ.png" alt="" loading="lazy"></figure>
+]]></content>
+    </entry>
 </feed>
