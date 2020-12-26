@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://NCUczy.github.io</id>
-    <title>Gridea</title>
-    <updated>2020-12-26T14:21:00.510Z</updated>
+    <title>SuoNi‘blog</title>
+    <updated>2020-12-26T14:32:57.359Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://NCUczy.github.io"/>
     <link rel="self" href="https://NCUczy.github.io/atom.xml"/>
     <subtitle>自强不息，正位凝命。</subtitle>
     <logo>https://NCUczy.github.io/images/avatar.png</logo>
     <icon>https://NCUczy.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2020, Gridea</rights>
+    <rights>All rights reserved 2020, SuoNi‘blog</rights>
     <entry>
         <title type="html"><![CDATA[Hello Gridea]]></title>
         <id>https://NCUczy.github.io/post/hello-gridea/</id>
