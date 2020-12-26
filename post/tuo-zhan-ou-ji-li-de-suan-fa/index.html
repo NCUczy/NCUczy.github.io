@@ -1,73 +1,106 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://NCUczy.github.io</id>
-    <title>SuoNi&apos;blog</title>
-    <updated>2020-12-26T17:33:57.397Z</updated>
-    <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://NCUczy.github.io"/>
-    <link rel="self" href="https://NCUczy.github.io/atom.xml"/>
-    <subtitle>自强不息，正位凝命。</subtitle>
-    <logo>https://NCUczy.github.io/images/avatar.png</logo>
-    <icon>https://NCUczy.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2020, SuoNi&apos;blog</rights>
-    <entry>
-        <title type="html"><![CDATA[二叉树操作]]></title>
-        <id>https://NCUczy.github.io/post/er-cha-shu/</id>
-        <link href="https://NCUczy.github.io/post/er-cha-shu/">
-        </link>
-        <updated>2020-12-26T15:26:17.000Z</updated>
-        <content type="html"><![CDATA[<h3 id="二叉树的简单操作">二叉树的简单操作</h3>
-<p>树深树广结点距离的简单例题</p>
-<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2020/12/13/cyQJiYS2nOrub7h.png" alt="" loading="lazy"></figure>
-<p>类似这样的描述，进行建树求解。</p>
-<figure data-type="image" tabindex="2"><img src="https://i.loli.net/2020/12/13/fdyox3ERDLPekap.png" alt="" loading="lazy"></figure>
-<p>接下来我们进行问题分析，对于树的深度与宽度，可以通过累加进行分层求和，最后输出即可。</p>
-<p>而结点之间的距离，应该是爬树的操作，这里注意到了题意体现的左右子树的各自高度，</p>
-<p>处理方法也不同，所以用dfs向上搜索，直到u，v到达根节点的位置，统计disu，disv的长度，</p>
-<p>并且计算，在深搜边界进行输出结果即可。</p>
-<h1 id="code"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>c</mi><mi>o</mi><mi>d</mi><mi>e</mi></mrow><annotation encoding="application/x-tex">code</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">c</span><span class="mord mathdefault">o</span><span class="mord mathdefault">d</span><span class="mord mathdefault">e</span></span></span></span></h1>
-<pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;//磅礴大气头文件
-using namespace std;
-int f[101],w[101],d[101];//分别代表，父节点，宽度，深度
-int disu,disv,maxw,maxd;//左子树的路径长度，右子树的路径长度，最宽值，最深值
-void dfs(int u,int v){
-	if(u==v){
-		cout&lt;&lt;disu*2+disv&lt;&lt;endl;
-		return;//深搜边界
-	}
-	if(d[u]==d[v])u=f[u],v=f[v],disu++,disv++;//两边同时爬树
-	else if(d[u]&gt;d[v])u=f[u],disu++;//左深左爬
-		else v=f[v],disv++;//右深右爬
-		dfs(u,v);//深搜父节点
-}
-int main(){
-	int n;cin&gt;&gt;n;
-	int u,v;
-	d[1]=1;
-	for(int i=1;i&lt;=n-1;i++){
-		cin&gt;&gt;u&gt;&gt;v;
-		f[v]=u;//储存父节点
-		d[v]=d[u]+1;//深度加深
-		w[d[v]]++;//以层为序，累加宽度
-		maxw=max(maxw,w[d[v]]);//求极值
-		maxd=max(maxd,d[v]);//+1
-	}
-	cin&gt;&gt;u&gt;&gt;v;//hhhh
-	cout&lt;&lt;maxd&lt;&lt;endl&lt;&lt;maxw&lt;&lt;endl;
-	dfs(u,v);//深搜调用
-	return 0;
-}//完结撒花QWQ
-</code></pre>
-<figure data-type="image" tabindex="3"><img src="https://i.loli.net/2020/12/13/qyxrmUNlSRtBGfQ.png" alt="" loading="lazy"></figure>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[拓展欧几里得算法]]></title>
-        <id>https://NCUczy.github.io/post/tuo-zhan-ou-ji-li-de-suan-fa/</id>
-        <link href="https://NCUczy.github.io/post/tuo-zhan-ou-ji-li-de-suan-fa/">
-        </link>
-        <updated>2020-12-21T17:32:20.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="拓展欧几里得算法">拓展欧几里得算法</h2>
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>拓展欧几里得算法 | SuoNi&#39;blog</title>
+<link rel="shortcut icon" href="https://NCUczy.github.io/favicon.ico?v=1609004004613">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://NCUczy.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="拓展欧几里得算法 | SuoNi&#39;blog - Atom Feed" href="https://NCUczy.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="拓展欧几里得算法
+复习欧几里得算法
+作为数论的开始，gcd(a，b)表示
+欧几里得算法求得a，b的最大公因数，
+原理采取“辗转相除法”（yy即可不解释了
+
+函数代码实现C++
+    int gcd(int a,int b){
+    if..." />
+    <meta name="keywords" content="笔记" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://NCUczy.github.io">
+  <img class="avatar" src="https://NCUczy.github.io/images/avatar.png?v=1609004004613" alt="">
+  </a>
+  <h1 class="site-title">
+    SuoNi&#39;blog
+  </h1>
+  <p class="site-description">
+    自强不息，正位凝命。
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              拓展欧几里得算法
+            </h2>
+            <div class="post-info">
+              <span>
+                2020-12-22
+              </span>
+              <span>
+                9 min read
+              </span>
+              
+                <a href="https://NCUczy.github.io/tag/TQUl7kQkm/" class="post-tag">
+                  # 笔记
+                </a>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <h2 id="拓展欧几里得算法">拓展欧几里得算法</h2>
 <p>复习欧几里得算法</p>
 <pre><code class="language-c">作为数论的开始，gcd(a，b)表示
 欧几里得算法求得a，b的最大公因数，
@@ -199,6 +232,85 @@ int main(){
 <p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">一</mi><mi mathvariant="normal">行</mi><mi mathvariant="normal">数</mi><mi mathvariant="normal">字</mi><mi>a</mi><mtext> </mtext><mi>b</mi><mtext> </mtext><mi>m</mi><mtext> </mtext><mi>n</mi><mtext> </mtext><mi>l</mi><mi mathvariant="normal">，</mi><mi mathvariant="normal">空</mi><mi mathvariant="normal">格</mi><mi mathvariant="normal">隔</mi><mi mathvariant="normal">开</mi><mn>0</mn><mo>&lt;</mo><mi>a</mi><mo>&lt;</mo><mi>b</mi><mo>&lt;</mo><mn>2</mn><mo>×</mo><mn>1</mn><msup><mn>0</mn><mn>9</mn></msup><mi mathvariant="normal">，</mi><mi>l</mi><mo>&lt;</mo><mn>2</mn><mo>×</mo><mn>1</mn><msup><mn>0</mn><mn>10</mn></msup></mrow><annotation encoding="application/x-tex">一行数字a\ b\ m\ n\ l，空格隔开0&lt;a&lt;b&lt;2\times10^9，l&lt;2\times10^{10}
 </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.73354em;vertical-align:-0.0391em;"></span><span class="mord cjk_fallback">一</span><span class="mord cjk_fallback">行</span><span class="mord cjk_fallback">数</span><span class="mord cjk_fallback">字</span><span class="mord mathdefault">a</span><span class="mspace"> </span><span class="mord mathdefault">b</span><span class="mspace"> </span><span class="mord mathdefault">m</span><span class="mspace"> </span><span class="mord mathdefault">n</span><span class="mspace"> </span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord cjk_fallback">，</span><span class="mord cjk_fallback">空</span><span class="mord cjk_fallback">格</span><span class="mord cjk_fallback">隔</span><span class="mord cjk_fallback">开</span><span class="mord">0</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathdefault">a</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.73354em;vertical-align:-0.0391em;"></span><span class="mord mathdefault">b</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.9032079999999999em;vertical-align:-0.0391em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641079999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">9</span></span></span></span></span></span></span></span><span class="mord cjk_fallback">，</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8641079999999999em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641079999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span><span class="mord mtight">0</span></span></span></span></span></span></span></span></span></span></span></span></span></p>
 <p>根据题意输出</p>
-]]></content>
-    </entry>
-</feed>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E6%8B%93%E5%B1%95%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%AE%97%E6%B3%95">拓展欧几里得算法</a><br>
+*
+<ul>
+<li><a href="#%E5%85%B3%E4%BA%8E%E4%BD%BF%E7%94%A8%E6%8B%93%E5%B1%95%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%AE%97%E6%B3%95%E6%B1%82">关于使用拓展欧几里得算法求</a></li>
+</ul>
+</li>
+<li><a href="#%E6%B1%82%E6%B1%82%E4%BA%86%E6%9C%9F%E6%9C%AB%E5%A5%B3%E5%A8%B2%E8%A1%A5%E5%A4%A9%E8%AE%A9%E6%88%91%E8%BF%87%E5%90%A7%E4%B8%8D%E8%A6%81%E6%8C%82%E7%A7%91%E5%91%80%E5%91%80%E5%91%80">求求了，期末女娲补天，让我过吧，不要挂科呀呀呀</a>
+<ul>
+<li><a href="#%E6%88%90%E4%B8%BA%E4%BA%86%E5%8D%97%E6%98%8C%E5%A4%A7%E5%AD%A6oj%E7%AE%A1%E7%90%86%E5%91%98%E4%BA%8E%E6%98%AF%E6%8A%8A%E6%8E%8C%E6%8F%A1%E7%9A%84%E7%AE%97%E6%B3%95%E8%BF%9B%E8%A1%8C%E5%8F%98%E5%BD%A2%E5%87%BA%E9%A2%98%E5%A6%82%E4%B8%8B%E4%B8%8A%E9%9D%A2%E7%9A%84%E4%BB%A3%E7%A0%81%E4%B9%9F%E8%83%BDacupdate20201213">成为了南昌大学OJ管理员，于是把掌握的算法进行变形出题如下，上面的代码也能AC，update:2020/12/13</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+
+        
+
+        <div class="site-footer">
+  所溺大魔王
+  <a class="rss" href="https://NCUczy.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>
