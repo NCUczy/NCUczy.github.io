@@ -2,25 +2,22 @@
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>简介 | SuoNi&#39;blog</title>
+<title>邻接表 DFS BFS | SuoNi&#39;blog</title>
 <link rel="shortcut icon" href="https://NCUczy.github.io/favicon.ico?v=1609051008881">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://NCUczy.github.io/styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="简介 | SuoNi&#39;blog - Atom Feed" href="https://NCUczy.github.io/atom.xml">
+<link rel="alternate" type="application/atom+xml" title="邻接表 DFS BFS | SuoNi&#39;blog - Atom Feed" href="https://NCUczy.github.io/atom.xml">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
 
-    <meta name="description" content="作者简介：
-
-SuoNi
-😜###### 性别：男
-💻###### 爱好：睡觉 看番 读书 诗词 游戏
-🔑###### 学历：本科
-🔕###### QQ：2213663986
-✔️###### 微信：15929843223
-☯️##..." />
-    <meta name="keywords" content="简介" />
+    <meta name="description" content="邻接表状态下对图的DFS与BFS操作
+#include&lt;bits/stdc++.h&gt;
+using namespace std;
+bool visite[100001];
+int n,m;
+vector&lt;int&gt;G[1..." />
+    <meta name="keywords" content="笔记" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
     <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
   </head>
@@ -82,51 +79,76 @@ SuoNi
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              简介
+              邻接表 DFS BFS
             </h2>
             <div class="post-info">
               <span>
-                2020-12-27
+                2020-12-20
               </span>
               <span>
-                1 min read
+                2 min read
               </span>
               
-                <a href="https://NCUczy.github.io/tag/h3nt94MLJs/" class="post-tag">
-                  # 简介
+                <a href="https://NCUczy.github.io/tag/TQUl7kQkm/" class="post-tag">
+                  # 笔记
                 </a>
               
             </div>
             
             <div class="post-content-wrapper">
               <div class="post-content">
-                <h6 id="作者简介">作者简介：</h6>
-<img src="https://i.loli.net/2020/12/27/Laxf1mBE6SZbA8F.png" style="zoom:25%;" />
-<p>SuoNi</p>
-<p>😜###### 性别：男</p>
-<p>💻###### 爱好：睡觉 看番 读书 诗词 游戏</p>
-<p>🔑###### 学历：本科</p>
-<p>🔕###### QQ：2213663986</p>
-<p>✔️###### 微信：15929843223</p>
-<p>☯️###### B站：Suo_Ni</p>
-<p>🕎###### 洛谷：SuoNi</p>
-<p>🦄###### 王者荣耀：Q76区 君箫大魔王 V76区 所溺大魔王</p>
-<p>🐤###### 星座：射手座</p>
-<p>🌵###### 喜欢的书：《小王子》《月亮与六便士》《生死疲劳》《百年孤独》</p>
-<hr>
-<p>大事年表：</p>
-<h6 id="2020911">2020/9/11</h6>
-<p>来到南昌大学</p>
-<h6 id="2020101">2020/10/1</h6>
-<p>自学C++</p>
-<h6 id="2020103">2020/10/3</h6>
-<p>进入洛谷</p>
-<p>开始接触ACM程序设计竞赛</p>
-<h6 id="2020111">2020/11/1</h6>
-<p>AC100祭</p>
-<h6 id="20201213">2020/12/13</h6>
-<p>成为南昌大学OJ管理员</p>
-<hr>
+                <h3 id="邻接表状态下对图的dfs与bfs操作">邻接表状态下对图的DFS与BFS操作</h3>
+<pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+bool visite[100001];
+int n,m;
+vector&lt;int&gt;G[100001];
+void dfs(int x,int r){
+	visite[x]=true;
+	cout&lt;&lt;x&lt;&lt;&quot; &quot;;
+	if(r==n)return ;
+	for(int i=0;i&lt;G[x].size();i++){
+		if(!visite[G[x][i]]){
+			dfs(G[x][i],++r);
+		}
+	}
+}
+queue&lt;int&gt;v;
+void bfs(int x){
+	memset(visite,0,sizeof(visite));
+	visite[x]=1;
+	v.push(x);
+	while(!v.empty()){
+		int xx=v.front();
+		v.pop();
+		cout&lt;&lt;xx&lt;&lt;&quot; &quot;;
+		for(int i=0;i&lt;G[xx].size();i++){
+			if(!visite[G[xx][i]]){
+				visite[G[xx][i]]=1;
+				v.push(G[xx][i]);
+			}
+		}
+	}
+}
+int main(){
+	cin&gt;&gt;n&gt;&gt;m;
+	for(int i=1;i&lt;=m;i++){
+		int u,v;
+		scanf(&quot;%d %d&quot;,&amp;u,&amp;v);
+		G[u].push_back(v);
+	}
+	for(int i=1;i&lt;=n;i++){
+		sort(G[i].begin(),G[i].end());
+		
+	}
+	dfs(1,0);
+	cout&lt;&lt;endl;
+	bfs(1);
+	cout&lt;&lt;endl;
+	return 0;
+	
+}
+</code></pre>
 
               </div>
               <div class="toc-container">
@@ -135,24 +157,7 @@ SuoNi
 <ul>
 <li>
 <ul>
-<li>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#%E4%BD%9C%E8%80%85%E7%AE%80%E4%BB%8B">作者简介：</a></li>
-<li><a href="#2020911">2020/9/11</a></li>
-<li><a href="#2020101">2020/10/1</a></li>
-<li><a href="#2020103">2020/10/3</a></li>
-<li><a href="#2020111">2020/11/1</a></li>
-<li><a href="#20201213">2020/12/13</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
+<li><a href="#%E9%82%BB%E6%8E%A5%E8%A1%A8%E7%8A%B6%E6%80%81%E4%B8%8B%E5%AF%B9%E5%9B%BE%E7%9A%84dfs%E4%B8%8Ebfs%E6%93%8D%E4%BD%9C">邻接表状态下对图的DFS与BFS操作</a></li>
 </ul>
 </li>
 </ul>
@@ -164,6 +169,15 @@ SuoNi
           </article>
         </div>
 
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://NCUczy.github.io/post/zi-fu-chuan/">
+              <h3 class="post-title">
+                字符串
+              </h3>
+            </a>
+          </div>
         
 
         

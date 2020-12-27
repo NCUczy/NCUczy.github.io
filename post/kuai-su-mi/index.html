@@ -2,25 +2,23 @@
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>简介 | SuoNi&#39;blog</title>
+<title>快速幂 | SuoNi&#39;blog</title>
 <link rel="shortcut icon" href="https://NCUczy.github.io/favicon.ico?v=1609051008881">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://NCUczy.github.io/styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="简介 | SuoNi&#39;blog - Atom Feed" href="https://NCUczy.github.io/atom.xml">
+<link rel="alternate" type="application/atom+xml" title="快速幂 | SuoNi&#39;blog - Atom Feed" href="https://NCUczy.github.io/atom.xml">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
 
-    <meta name="description" content="作者简介：
-
-SuoNi
-😜###### 性别：男
-💻###### 爱好：睡觉 看番 读书 诗词 游戏
-🔑###### 学历：本科
-🔕###### QQ：2213663986
-✔️###### 微信：15929843223
-☯️##..." />
-    <meta name="keywords" content="简介" />
+    <meta name="description" content="快速幂的两种基本写法，在执行效率上其实相差不大的。
+递归写法
+typedef long long ll;
+ll binaryPow(ll a,ll b,ll p)
+{
+if(b==0)return 1;//a^0=1
+if(b&amp;1)..." />
+    <meta name="keywords" content="笔记" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
     <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
   </head>
@@ -82,51 +80,51 @@ SuoNi
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              简介
+              快速幂
             </h2>
             <div class="post-info">
               <span>
-                2020-12-27
+                2020-11-12
               </span>
               <span>
                 1 min read
               </span>
               
-                <a href="https://NCUczy.github.io/tag/h3nt94MLJs/" class="post-tag">
-                  # 简介
+                <a href="https://NCUczy.github.io/tag/TQUl7kQkm/" class="post-tag">
+                  # 笔记
                 </a>
               
             </div>
             
             <div class="post-content-wrapper">
               <div class="post-content">
-                <h6 id="作者简介">作者简介：</h6>
-<img src="https://i.loli.net/2020/12/27/Laxf1mBE6SZbA8F.png" style="zoom:25%;" />
-<p>SuoNi</p>
-<p>😜###### 性别：男</p>
-<p>💻###### 爱好：睡觉 看番 读书 诗词 游戏</p>
-<p>🔑###### 学历：本科</p>
-<p>🔕###### QQ：2213663986</p>
-<p>✔️###### 微信：15929843223</p>
-<p>☯️###### B站：Suo_Ni</p>
-<p>🕎###### 洛谷：SuoNi</p>
-<p>🦄###### 王者荣耀：Q76区 君箫大魔王 V76区 所溺大魔王</p>
-<p>🐤###### 星座：射手座</p>
-<p>🌵###### 喜欢的书：《小王子》《月亮与六便士》《生死疲劳》《百年孤独》</p>
-<hr>
-<p>大事年表：</p>
-<h6 id="2020911">2020/9/11</h6>
-<p>来到南昌大学</p>
-<h6 id="2020101">2020/10/1</h6>
-<p>自学C++</p>
-<h6 id="2020103">2020/10/3</h6>
-<p>进入洛谷</p>
-<p>开始接触ACM程序设计竞赛</p>
-<h6 id="2020111">2020/11/1</h6>
-<p>AC100祭</p>
-<h6 id="20201213">2020/12/13</h6>
-<p>成为南昌大学OJ管理员</p>
-<hr>
+                <p>快速幂的两种基本写法，在执行效率上其实相差不大的。</p>
+<h6 id="递归写法">递归写法</h6>
+<pre><code class="language-cpp">typedef long long ll;
+ll binaryPow(ll a,ll b,ll p)
+{
+if(b==0)return 1;//a^0=1
+if(b&amp;1)return a*binaryPow(a,b-1,p)%p;//b%2==1
+else {
+		ll mul =binaryPow(a,b/2,p);
+		return mul*mul%p;
+	}
+}
+</code></pre>
+<h6 id="迭代写法">迭代写法</h6>
+<pre><code class="language-cpp">int power(int a,int b,int p)
+{
+int ans=1%p;
+for(;b;b&gt;&gt;=1){
+if(b&amp;1)ans=(long long)ans*a%p;
+a=(long long )a*a%p;
+}
+	return ans;
+}
+</code></pre>
+<p>​	在这种迭代解法里面，即便是两个数相乘的结果，也是在一个32位的寄存器里，</p>
+<p>所以我没将其中一个强制转化为64位整型参与运算，从而得到正确结果，</p>
+<p>最终对p取模后，隐性转化为int存在ans里面。</p>
 
               </div>
               <div class="toc-container">
@@ -141,12 +139,8 @@ SuoNi
 <ul>
 <li>
 <ul>
-<li><a href="#%E4%BD%9C%E8%80%85%E7%AE%80%E4%BB%8B">作者简介：</a></li>
-<li><a href="#2020911">2020/9/11</a></li>
-<li><a href="#2020101">2020/10/1</a></li>
-<li><a href="#2020103">2020/10/3</a></li>
-<li><a href="#2020111">2020/11/1</a></li>
-<li><a href="#20201213">2020/12/13</a></li>
+<li><a href="#%E9%80%92%E5%BD%92%E5%86%99%E6%B3%95">递归写法</a></li>
+<li><a href="#%E8%BF%AD%E4%BB%A3%E5%86%99%E6%B3%95">迭代写法</a></li>
 </ul>
 </li>
 </ul>

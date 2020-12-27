@@ -1,0 +1,332 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>新生赛 | SuoNi&#39;blog</title>
+<link rel="shortcut icon" href="https://NCUczy.github.io/favicon.ico?v=1609051008881">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://NCUczy.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="新生赛 | SuoNi&#39;blog - Atom Feed" href="https://NCUczy.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="关于2020/12/6南昌大学20级新生赛的总结
+这次比赛12题AC4，话不多说，以此为鉴。
+
+一开始我我觉得是递归吧，后面感觉是找规律也确实是找规律，找到一个通项公式然后就AC于是
+1-&gt;1
+2-&gt;1
+3-&gt;2
+4-&g..." />
+    <meta name="keywords" content="比赛" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://NCUczy.github.io">
+  <img class="avatar" src="https://NCUczy.github.io/images/avatar.png?v=1609051008881" alt="">
+  </a>
+  <h1 class="site-title">
+    SuoNi&#39;blog
+  </h1>
+  <p class="site-description">
+    自强不息，正位凝命。
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="https://NCUczy.github.io/post/jian-jie" class="menu">
+          作者
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              新生赛
+            </h2>
+            <div class="post-info">
+              <span>
+                2020-12-07
+              </span>
+              <span>
+                5 min read
+              </span>
+              
+                <a href="https://NCUczy.github.io/tag/U81iAOE6Q/" class="post-tag">
+                  # 比赛
+                </a>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <h2 id="关于2020126南昌大学20级新生赛的总结">关于2020/12/6南昌大学20级新生赛的总结</h2>
+<p>这次比赛12题AC4，话不多说，以此为鉴。</p>
+<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2020/12/07/NIicyaH17EDFA34.png" alt="" loading="lazy"></figure>
+<p>一开始我我觉得是递归吧，后面感觉是找规律也确实是找规律，找到一个通项公式然后就AC于是</p>
+<p>1-&gt;1</p>
+<p>2-&gt;1</p>
+<p>3-&gt;2</p>
+<p>4-&gt;3</p>
+<p>5-&gt;3</p>
+<p>6-&gt;3</p>
+<p>7-&gt;5</p>
+<p>8-&gt;5</p>
+<p>9-&gt;6</p>
+<p>……</p>
+<h5 id="好吧我已经懵了浅薄的数学功底不足以让我找出来规律">好吧，我已经懵了，浅薄的数学功底不足以让我找出来规律，</h5>
+<p>来了，现在来看看到底是怎么做的。</p>
+<p>我们可以想如果不选n+1那么肯定有1~n的全选，也就是说我选了n+1能替换掉前面的越多越好，渐渐问题清晰了起来，我们拿n+1替换掉越多的1到n的数字，那么ans不就等于n+1-x（替换掉的数字），不就出来了嘛！@W@（可惜比赛时候想不出来 呜呜呜</p>
+<figure data-type="image" tabindex="2"><img src="https://i.loli.net/2020/12/07/rDtyLoMxEOVd5hg.png" alt="" loading="lazy"></figure>
+<p>废话不说了，看代码怎么实现：</p>
+<pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
+#define ll long long
+using namespace std;
+ll n;
+ll cal(ll n) {
+	return (1+n)*n;
+}
+int main() {
+	cin&gt;&gt;n;
+	ll l=0,r=min((ll)5e9,n);//这里是一个规律，指的是不必搜到满数据的根号处
+	while(l&lt;r) { //二分查找满足（1+2+...+x）≤(n+1)中最大的x
+		ll mid=(l+r+1)&gt;&gt;1;
+		if(cal(mid)/2&lt;=(n+1))	l=mid;
+		else		r=mid-1;
+	}
+	cout&lt;&lt;n-l+1;
+}//二分搜索
+</code></pre>
+<h5 id="字符串的题-其实挺水的忘了怎么写函数函数怎么用没有好好练习过">字符串的题 其实挺水的，++，忘了怎么写函数，函数怎么用（没有好好练习过</h5>
+<figure data-type="image" tabindex="3"><img src="https://i.loli.net/2020/12/07/S1UyhTuFKdRaNf7.png" alt="" loading="lazy"></figure>
+<p>感觉有点坑的地方是两个字符串相等的时候，得依次判断，我去，草率了上来就是一个if接着就是else完全没有了阶梯级别的判断，++！</p>
+<pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;//重新打了一遍代码，刚刚去学校OJ试过，一遍AC 呵呵
+using namespace std;
+int main(){
+	string x,y;
+	while(cin&gt;&gt;x&gt;&gt;y){//多组
+		int lx=x.size();//这里得补充一下另一个知识点了，试了好几次取长度的函数//x.strlen（）//strlen（x）//还好过了
+		int ly=y.size();
+		if(lx&lt;=ly){
+			int ans=1+y.find(x);
+			if(ans==0){
+				cout&lt;&lt;&quot;None&quot;&lt;&lt;endl;
+				continue;//既然已经长度比不过，而且找不到，就结束这轮了呗
+			}
+			else{
+				cout&lt;&lt;&quot;b&quot;&lt;&lt;ans&lt;&lt;endl;
+			}
+		}
+		if(lx&gt;=ly){
+			int ans=1+x.find(y);
+			if(ans==0){
+				cout&lt;&lt;&quot;None&quot;&lt;&lt;endl;
+			}
+			else {
+				cout&lt;&lt;&quot;a&quot;&lt;&lt;ans&lt;&lt;endl;
+			}
+		}
+	}
+	return 0;
+}//总结，不好好复习，可惜，可惜……
+</code></pre>
+<h4 id="约瑟夫问题">约瑟夫问题</h4>
+<p>我去，一看到这个，哇原来是链表或者队列的板子题，这也太舒服了8</p>
+<figure data-type="image" tabindex="4"><img src="https://i.loli.net/2020/12/07/6caGzySrhTUWOxj.png" alt="" loading="lazy"></figure>
+<p>直接上来，手写板子，下面：</p>
+<pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;//重新敲了一遍
+using namespace std;
+queue&lt;int&gt;v;//队列
+int main(){
+	int n,m;cin&gt;&gt;n&gt;&gt;m;
+	for(int i=1;i&lt;=n;i++){
+		v.push(i);//人数编号依次入队
+	}
+	int k,x=1;
+	while(!v.empty()){
+		if(x==m){
+			k=v.front();
+			v.pop();
+			x=1;//报数，出队，重新计数
+		}
+		else {
+			int m=v.front();
+			v.push(m);
+			v.pop();
+			x++;//不满足则首入尾，模拟环
+		}
+		
+	}cout&lt;&lt;k&lt;&lt;endl;//输出
+}
+</code></pre>
+<p>整体下来思路是没问题的，但是，但是，数据范围太大了，我果然当时一提交就内存爆了（队列STL有点脆弱呀，不过就算不爆空间，时间也会TEL QWQ&lt;我太难了++</p>
+<figure data-type="image" tabindex="5"><img src="https://i.loli.net/2020/12/07/kwbBKop1Med3mWV.png" alt="" loading="lazy"></figure>
+<h1 id="谢谢看到这里孩子已经傻掉了"><em>谢谢，看到这里，孩子已经傻掉了……</em></h1>
+<figure data-type="image" tabindex="6"><img src="https://i.loli.net/2020/12/07/WOLp1URund7S5rz.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="7"><img src="https://i.loli.net/2020/12/07/A8LM5oIPsXHDQig.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="8"><img src="https://i.loli.net/2020/12/07/rhdt7iC2VDIx15b.png" alt="" loading="lazy"></figure>
+<p>最后，附上大佬代码：</p>
+<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+typedef long long LL;
+
+LL Ceil(LL x, LL y) {
+    return x / y + (x % y != 0);
+}
+
+LL J(LL n, LL q) {
+    LL D = 1, end = (q - 1) * n;
+    while (D &lt;= end) {
+        D = Ceil(q * D, q - 1);
+    }
+    return q * n + 1 - D;
+}
+
+int main() {
+    LL n, q;
+    while (~scanf(&quot;%lld%lld&quot;, &amp;n, &amp;q)) {
+        printf(&quot;%lld\n&quot;, J(n, q));
+    }
+    return 0;
+}
+
+/*作者：godweiyang
+链接：https://www.zhihu.com/question/358255792/answer/974983270
+来源：知乎
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。*/
+</code></pre>
+<h4 id="没什么好说的就是单纯的菜">没什么好说的，就是单纯的菜</h4>
+<p>（后续待更，电子竞技就是永不言败</p>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E5%85%B3%E4%BA%8E2020126%E5%8D%97%E6%98%8C%E5%A4%A7%E5%AD%A620%E7%BA%A7%E6%96%B0%E7%94%9F%E8%B5%9B%E7%9A%84%E6%80%BB%E7%BB%93">关于2020/12/6南昌大学20级新生赛的总结</a><br>
+*<br>
+*<br>
+* <a href="#%E5%A5%BD%E5%90%A7%E6%88%91%E5%B7%B2%E7%BB%8F%E6%87%B5%E4%BA%86%E6%B5%85%E8%96%84%E7%9A%84%E6%95%B0%E5%AD%A6%E5%8A%9F%E5%BA%95%E4%B8%8D%E8%B6%B3%E4%BB%A5%E8%AE%A9%E6%88%91%E6%89%BE%E5%87%BA%E6%9D%A5%E8%A7%84%E5%BE%8B">好吧，我已经懵了，浅薄的数学功底不足以让我找出来规律，</a><br>
+* <a href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E9%A2%98-%E5%85%B6%E5%AE%9E%E6%8C%BA%E6%B0%B4%E7%9A%84%E5%BF%98%E4%BA%86%E6%80%8E%E4%B9%88%E5%86%99%E5%87%BD%E6%95%B0%E5%87%BD%E6%95%B0%E6%80%8E%E4%B9%88%E7%94%A8%E6%B2%A1%E6%9C%89%E5%A5%BD%E5%A5%BD%E7%BB%83%E4%B9%A0%E8%BF%87">字符串的题 其实挺水的，++，忘了怎么写函数，函数怎么用（没有好好练习过</a>
+<ul>
+<li><a href="#%E7%BA%A6%E7%91%9F%E5%A4%AB%E9%97%AE%E9%A2%98">约瑟夫问题</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E8%B0%A2%E8%B0%A2%E7%9C%8B%E5%88%B0%E8%BF%99%E9%87%8C%E5%AD%A9%E5%AD%90%E5%B7%B2%E7%BB%8F%E5%82%BB%E6%8E%89%E4%BA%86"><em>谢谢，看到这里，孩子已经傻掉了……</em></a><br>
+*<br>
+*<br>
+* <a href="#%E6%B2%A1%E4%BB%80%E4%B9%88%E5%A5%BD%E8%AF%B4%E7%9A%84%E5%B0%B1%E6%98%AF%E5%8D%95%E7%BA%AF%E7%9A%84%E8%8F%9C">没什么好说的，就是单纯的菜</a></li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://NCUczy.github.io/post/ji-chu-suan-fa/">
+              <h3 class="post-title">
+                基础算法
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  所溺大魔王
+  <a class="rss" href="https://NCUczy.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

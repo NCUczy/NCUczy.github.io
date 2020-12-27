@@ -1,0 +1,267 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>哈希映射 | SuoNi&#39;blog</title>
+<link rel="shortcut icon" href="https://NCUczy.github.io/favicon.ico?v=1609051008881">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://NCUczy.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="哈希映射 | SuoNi&#39;blog - Atom Feed" href="https://NCUczy.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="字符串哈希转码操作
+对于读入的字符串，进行到unsigned long long 范围内的映射，由于“生日危机”的存在，
+所以并不能保证不存在“哈希冲突”，一般来说，我们对字符串进行哈希函数操作后，
+放入桶里面。
+Hash(s)=s×bas..." />
+    <meta name="keywords" content="笔记" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://NCUczy.github.io">
+  <img class="avatar" src="https://NCUczy.github.io/images/avatar.png?v=1609051008881" alt="">
+  </a>
+  <h1 class="site-title">
+    SuoNi&#39;blog
+  </h1>
+  <p class="site-description">
+    自强不息，正位凝命。
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="https://NCUczy.github.io/post/jian-jie" class="menu">
+          作者
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              哈希映射
+            </h2>
+            <div class="post-info">
+              <span>
+                2020-12-27
+              </span>
+              <span>
+                3 min read
+              </span>
+              
+                <a href="https://NCUczy.github.io/tag/TQUl7kQkm/" class="post-tag">
+                  # 笔记
+                </a>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <h3 id="字符串哈希转码操作">字符串哈希转码操作</h3>
+<p>对于读入的字符串，进行到unsigned long long 范围内的映射，由于“生日危机”的存在，</p>
+<p>所以并不能保证不存在“哈希冲突”，一般来说，我们对字符串进行哈希函数操作后，</p>
+<p>放入桶里面。</p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>H</mi><mi>a</mi><mi>s</mi><mi>h</mi><mo>(</mo><mi>s</mi><mo>)</mo><mo>=</mo><mi>s</mi><mo>×</mo><mi>b</mi><mi>a</mi><mi>s</mi><mi>e</mi><mi mathvariant="normal">%</mi><mi>m</mi><mi>o</mi><mi>d</mi></mrow><annotation encoding="application/x-tex">Hash(s)=s\times base \% mod</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.08125em;">H</span><span class="mord mathdefault">a</span><span class="mord mathdefault">s</span><span class="mord mathdefault">h</span><span class="mopen">(</span><span class="mord mathdefault">s</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">s</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.80556em;vertical-align:-0.05556em;"></span><span class="mord mathdefault">b</span><span class="mord mathdefault">a</span><span class="mord mathdefault">s</span><span class="mord mathdefault">e</span><span class="mord">%</span><span class="mord mathdefault">m</span><span class="mord mathdefault">o</span><span class="mord mathdefault">d</span></span></span></span> 这里面我们对字符串*base并且%mod，base与mod都是质数，</p>
+<p>一般base取131，233等质数，而mod则是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>×</mo><mn>1</mn><msup><mn>0</mn><mn>19</mn></msup><mo>+</mo><mn>7</mn><mtext> </mtext><mi>o</mi><mi>r</mi><mn>1</mn><mo>×</mo><mn>1</mn><msup><mn>0</mn><mn>9</mn></msup><mo>+</mo><mn>7</mn></mrow><annotation encoding="application/x-tex">1\times 10^{19}+7 \ or1\times10^{9}+7</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.897438em;vertical-align:-0.08333em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span><span class="mord mtight">9</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">7</span><span class="mspace"> </span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.897438em;vertical-align:-0.08333em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">9</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">7</span></span></span></span>不过大佬们说有的题目会卡这些</p>
+<p>更安全的做法是双Hash</p>
+<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2020/12/13/eFqjC2vKXuQaSiW.png" alt="" loading="lazy"></figure>
+<pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;//单Hash转码
+using namespace std;
+typedef unsigned long long ull;//溢出之后会自动对2^64取余很舒服
+ull base =233,mod=1e18+7,ans=1;
+char s[1000000];
+ull a[1000000];
+ull Hashs(char s[]){
+	int xx=1;
+	int len=strlen(s);
+	for(int i=0;i&lt;len;i++){
+		xx=(base*xx+(ull)s[i])%mod;
+	}//逐位进行转码
+	return xx;//额
+}
+int main(){
+	int n;cin&gt;&gt;n;ull x=1;
+	for(int i=1;i&lt;=n;i++){
+		scanf(&quot;%s&quot;,s);
+		a[i]=Hashs(s);
+	}
+	sort(a+1,a+1+n);//方面去重
+	for(int i=2;i&lt;=n;i++){
+		if(a[i]!=a[i-1])x++;
+	}
+	cout&lt;&lt;x&lt;&lt;endl;//输出异种数目
+	return 0;
+}//完结撒花QWQ
+</code></pre>
+<pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;//双Hash操作
+using namespace std;
+typedef unsigned long long ull;
+ull base=131;
+struct data
+{
+    ull x,y;
+}a[10010];
+char s[10010];
+int n,ans=1;
+ull mod1=19260817;
+ull mod2=19660813;//双mod
+ull hash1(char s[])
+{
+    int len=strlen(s);
+    ull ans=0;
+    for (int i=0;i&lt;len;i++)
+        ans=(ans*base+(ull)s[i])%mod1;
+    return ans;
+}
+ull hash2(char s[])
+{
+    int len=strlen(s);
+    ull ans=0;
+    for (int i=0;i&lt;len;i++)
+        ans=(ans*base+(ull)s[i])%mod2;
+    return ans;
+}
+bool comp(data a,data b)
+{
+    return a.x&lt;b.x;
+}
+main()
+{
+    scanf(&quot;%d&quot;,&amp;n);
+    for (int i=1;i&lt;=n;i++)
+    {
+        scanf(&quot;%s&quot;,s);
+        a[i].x=hash1(s);
+        a[i].y=hash2(s);
+    }
+    sort(a+1,a+n+1,comp);
+    for (int i=2;i&lt;=n;i++)
+        if (a[i].x!=a[i-1].x || a[i-1].y!=a[i].y)
+            ans++;
+    printf(&quot;%d\n&quot;,ans);
+}//原理与上面雷同，仅仅只是变化了成双转码，大大减少了“哈希冲突”的概率
+</code></pre>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%93%88%E5%B8%8C%E8%BD%AC%E7%A0%81%E6%93%8D%E4%BD%9C">字符串哈希转码操作</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://NCUczy.github.io/post/er-cha-shu/">
+              <h3 class="post-title">
+                二叉树操作
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  所溺大魔王
+  <a class="rss" href="https://NCUczy.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>
