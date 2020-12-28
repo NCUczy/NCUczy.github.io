@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>拓展欧几里得算法 | SuoNi&#39;blog</title>
-<link rel="shortcut icon" href="https://NCUczy.github.io/favicon.ico?v=1609065008267">
+<link rel="shortcut icon" href="https://NCUczy.github.io/favicon.ico?v=1609124574497">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://NCUczy.github.io/styles/main.css">
 <link rel="alternate" type="application/atom+xml" title="拓展欧几里得算法 | SuoNi&#39;blog - Atom Feed" href="https://NCUczy.github.io/atom.xml">
@@ -29,7 +29,7 @@
       <div class="main-content">
         <div class="site-header">
   <a href="https://NCUczy.github.io">
-  <img class="avatar" src="https://NCUczy.github.io/images/avatar.png?v=1609065008267" alt="">
+  <img class="avatar" src="https://NCUczy.github.io/images/avatar.png?v=1609124574497" alt="">
   </a>
   <h1 class="site-title">
     SuoNi&#39;blog
@@ -269,6 +269,32 @@ int main(){
           </div>
         
 
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: 'e6dade07380d61e44eb4',
+    clientSecret: 'b3e442437853316ed380c49d0a49a7b36e00e809',
+    repo: 'NCUczy.github.io',
+    owner: 'NCUczy',
+    admin: ['NCUczy'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+          
+
+          
         
 
         <div class="site-footer">
