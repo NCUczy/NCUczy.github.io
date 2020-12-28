@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://NCUczy.github.io</id>
     <title>SuoNi&apos;blog</title>
-    <updated>2020-12-28T05:08:41.786Z</updated>
+    <updated>2020-12-28T15:28:22.742Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://NCUczy.github.io"/>
     <link rel="self" href="https://NCUczy.github.io/atom.xml"/>
@@ -10,6 +10,31 @@
     <logo>https://NCUczy.github.io/images/avatar.png</logo>
     <icon>https://NCUczy.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, SuoNi&apos;blog</rights>
+    <entry>
+        <title type="html"><![CDATA[Python之路]]></title>
+        <id>https://NCUczy.github.io/post/python-zhi-lu/</id>
+        <link href="https://NCUczy.github.io/post/python-zhi-lu/">
+        </link>
+        <updated>2020-12-28T15:27:18.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="suoni学习python">SuoNi学习python</h1>
+<h2 id="一概述">一.概述</h2>
+<h6 id="1对集成环境的安装在涛学长的推荐下使用了pycharm并且进行社区版安装与汉化">1.对集成环境的安装，在涛学长的推荐下使用了pycharm，并且进行社区版安装与汉化。</h6>
+<h6 id="2学习基础的语法这里根据b站的马士兵python入门视频进行学习个人感觉由于已经有了对c以及其ide一些知识的了解学起来并不是那么费劲">2.学习基础的语法，这里根据B站的《马士兵python入门视频》进行学习，个人感觉由于已经有了对C++以及其IDE一些知识的了解，学起来并不是那么费劲。</h6>
+<h6 id="3这份博客更多的是为了自己以后学习了很多语言不混淆基本语法然后作为漫漫长路陪伴自己走下去的一个见证吧在边学习边这样记录中目前是有一种想法把python作为一种主攻方向并坚持下去的">3.这份博客更多的是为了自己以后学习了很多语言，不混淆基本语法，然后作为漫漫长路陪伴自己走下去的一个见证吧，在边学习边这样记录中，目前是有一种想法把python作为一种主攻方向并坚持下去的。</h6>
+<p>（2020/12/28）</p>
+<h2 id="二学习概况">二.学习概况</h2>
+<h4 id="1对编译器的熟悉与print函数的简单使用">1.对编译器的熟悉与print（）函数的简单使用：</h4>
+<pre><code class="language-python">print(&quot;good&quot;)
+cool=open('D:/这是一个word文档.doc','a+')
+print('hellow',file=cool)
+cool.close()
+</code></pre>
+<p>这里我调用了函数来在D盘目录下开创了一个.doc类型的文件并且把“hellow”写入其中，我确实成功的找到了这个文件，并且对了，也在操作台显示出了“good”。</p>
+<ol start="2">
+<li></li>
+</ol>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[哈希映射]]></title>
         <id>https://NCUczy.github.io/post/ha-xi-ying-she/</id>
