@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Python之路 | SuoNi&#39;blog</title>
-<link rel="shortcut icon" href="https://NCUczy.github.io/favicon.ico?v=1609496637133">
+<link rel="shortcut icon" href="https://NCUczy.github.io/favicon.ico?v=1609501858656">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://NCUczy.github.io/styles/main.css">
 <link rel="alternate" type="application/atom+xml" title="Python之路 | SuoNi&#39;blog - Atom Feed" href="https://NCUczy.github.io/atom.xml">
@@ -25,7 +25,7 @@
       <div class="main-content">
         <div class="site-header">
   <a href="https://NCUczy.github.io">
-  <img class="avatar" src="https://NCUczy.github.io/images/avatar.png?v=1609496637133" alt="">
+  <img class="avatar" src="https://NCUczy.github.io/images/avatar.png?v=1609501858656" alt="">
   </a>
   <h1 class="site-title">
     SuoNi&#39;blog
@@ -568,6 +568,30 @@ print (it2)
 it2.clear()
 </code></pre>
 <p>哈哈哈 ，我 <strong>滑稽</strong> 的映射内容例子。</p>
+<h2 id="三面向对象">三.面向对象</h2>
+<h5 id="1类">1.类</h5>
+<img src="https://i.loli.net/2021/01/01/guFCm3SPAXvNiha.png" style="zoom: 67%;" />
+<p>我用这个图很清晰展示了类的内容概念</p>
+<p>这个呢，我们把  <strong>class</strong>  关键字作为 <strong>类</strong> ，写在类中的函数我们通常叫做  **方法 ** ，</p>
+<p>这些方法就是对象可以接收的消息。</p>
+<h6 id="1创建和使用对象">1.创建和使用对象</h6>
+<p>当我们定义了一个类之后，可以通过下面的方式来创建对象并给对象发送消息</p>
+<pre><code class="language-python">def main():
+    #创建学生对象并且指定姓名与年龄
+    stu1 = Student ('所溺'，19)
+    #给对象发送study消息
+    stu1.study('I love you')
+    #给对象czy发送消息
+    stu1.czy()
+    stu2 = Student ('相里'，19)
+    stu2.study ('looks cool')
+    
+if __name__ == '__main__':
+    main()
+</code></pre>
+<ol start="2">
+<li></li>
+</ol>
 
               </div>
               <div class="toc-container">
@@ -581,6 +605,11 @@ it2.clear()
 <li><a href="#1%E5%AF%B9%E7%BC%96%E8%AF%91%E5%99%A8%E7%9A%84%E7%86%9F%E6%82%89%E4%B8%8E%E5%9F%BA%E7%A1%80%E5%87%BD%E6%95%B0%E6%9E%84%E6%9E%B6%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8">1.对编译器的熟悉与基础函数构架的简单使用：</a></li>
 </ul>
 </li>
+<li><a href="#%E4%B8%89%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1">三.面向对象</a><br>
+*<br>
+*<br>
+* <a href="#1%E7%B1%BB">1.类</a><br>
+* <a href="#1%E5%88%9B%E5%BB%BA%E5%92%8C%E4%BD%BF%E7%94%A8%E5%AF%B9%E8%B1%A1">1.创建和使用对象</a></li>
 </ul>
 </li>
 </ul>

@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://NCUczy.github.io</id>
     <title>SuoNi&apos;blog</title>
-    <updated>2021-01-01T10:24:15.088Z</updated>
+    <updated>2021-01-01T11:51:01.801Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://NCUczy.github.io"/>
     <link rel="self" href="https://NCUczy.github.io/atom.xml"/>
@@ -458,6 +458,30 @@ print (it2)
 it2.clear()
 </code></pre>
 <p>哈哈哈 ，我 <strong>滑稽</strong> 的映射内容例子。</p>
+<h2 id="三面向对象">三.面向对象</h2>
+<h5 id="1类">1.类</h5>
+<img src="https://i.loli.net/2021/01/01/guFCm3SPAXvNiha.png" style="zoom: 67%;" />
+<p>我用这个图很清晰展示了类的内容概念</p>
+<p>这个呢，我们把  <strong>class</strong>  关键字作为 <strong>类</strong> ，写在类中的函数我们通常叫做  **方法 ** ，</p>
+<p>这些方法就是对象可以接收的消息。</p>
+<h6 id="1创建和使用对象">1.创建和使用对象</h6>
+<p>当我们定义了一个类之后，可以通过下面的方式来创建对象并给对象发送消息</p>
+<pre><code class="language-python">def main():
+    #创建学生对象并且指定姓名与年龄
+    stu1 = Student ('所溺'，19)
+    #给对象发送study消息
+    stu1.study('I love you')
+    #给对象czy发送消息
+    stu1.czy()
+    stu2 = Student ('相里'，19)
+    stu2.study ('looks cool')
+    
+if __name__ == '__main__':
+    main()
+</code></pre>
+<ol start="2">
+<li></li>
+</ol>
 ]]></content>
     </entry>
     <entry>
