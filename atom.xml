@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://NCUczy.github.io</id>
     <title>SuoNi&apos;blog</title>
-    <updated>2021-01-01T10:12:41.423Z</updated>
+    <updated>2021-01-01T10:16:22.250Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://NCUczy.github.io"/>
     <link rel="self" href="https://NCUczy.github.io/atom.xml"/>
@@ -19,10 +19,10 @@
         <content type="html"><![CDATA[<p><em><strong>伟大的无穷，也是从零开始的</strong></em></p>
 <h2 id="一概述">一.概述</h2>
 <p>1.对集成环境的安装，在<em>涛学长</em>的推荐下使用了<strong>pycharm</strong>，并且进行社区版安装与汉化。</p>
-<p>2.学习基础的语法，这里根据B站的*《马士兵python入门视频》*进行学习，个人感觉由于已经有了对C++以及其IDE一些知识的了解，学起来并不是那么费劲。</p>
+<p>2.学习基础的语法，个人感觉由于已经有了对C++以及其IDE一些知识的了解，学起来并不是那么费劲。</p>
 <p>3.这份博客更多的是为了自己以后学习了很多语言，不混淆基本语法，然后作为漫漫长路陪伴自己走下去的一个见证吧，在边学习边这样记录中，目前是有一种想法把<strong>python</strong>作为一种主攻方向并坚持下去的。</p>
 <p>（2020/12/28）</p>
-<h2 id="二学习概况">二.学习概况</h2>
+<h2 id="二面向过程">二.面向过程</h2>
 <h4 id="1对编译器的熟悉与基础函数构架的简单使用">1.对编译器的熟悉与基础函数构架的简单使用：</h4>
 <ol>
 <li></li>
