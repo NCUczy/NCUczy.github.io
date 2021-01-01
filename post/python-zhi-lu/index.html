@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Python之路 | SuoNi&#39;blog</title>
-<link rel="shortcut icon" href="https://NCUczy.github.io/favicon.ico?v=1609496179024">
+<link rel="shortcut icon" href="https://NCUczy.github.io/favicon.ico?v=1609496637133">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://NCUczy.github.io/styles/main.css">
 <link rel="alternate" type="application/atom+xml" title="Python之路 | SuoNi&#39;blog - Atom Feed" href="https://NCUczy.github.io/atom.xml">
@@ -25,7 +25,7 @@
       <div class="main-content">
         <div class="site-header">
   <a href="https://NCUczy.github.io">
-  <img class="avatar" src="https://NCUczy.github.io/images/avatar.png?v=1609496179024" alt="">
+  <img class="avatar" src="https://NCUczy.github.io/images/avatar.png?v=1609496637133" alt="">
   </a>
   <h1 class="site-title">
     SuoNi&#39;blog
@@ -145,11 +145,11 @@ cool=open('D:/这是一个word文档.doc','a+')
 print('hellow',file=cool)
 cool.close()
 </code></pre>
-<p>这里我调用了函数来在D盘目录下开创了一个**.doc**类型的文件并且把“hellow”写入其中，我确实成功的找到了这个文件，并且对了，也在操作台显示出了“good”。</p>
+<p>这里我调用了函数来在D盘目录下开创了一个 <strong>.doc</strong> 类型的文件并且把“hellow”写入其中，我确实成功的找到了这个文件，并且对了，也在操作台显示出了“good”。</p>
 <ol start="2">
 <li></li>
 </ol>
-<p><strong>for</strong>循环倒是挺难受的可能是一开始，额 总是忘记“：”，哈哈哈，习惯就好，C++的后遗症，习惯性带”；“</p>
+<p><strong>for</strong> 循环倒是挺难受的可能是一开始，额 总是忘记“：”，哈哈哈，习惯就好，C++的后遗症，习惯性带”；“</p>
 <pre><code class="language-python">sun=0
 for i in range(1,101):
 	if(i%2==0):
@@ -160,7 +160,7 @@ print(sum)
 <ol start="3">
 <li></li>
 </ol>
-<p>接下来 就是学C++时候的<em>经典猜数字游戏</em>了，<strong>while：</strong></p>
+<p>接下来 就是学C++时候的<em>经典猜数字游戏</em>了， <strong>while：</strong></p>
 <pre><code class="language-python">import random
 
 answer = random.randint(1,100)
@@ -182,13 +182,13 @@ if counter &gt;7:
 <ol start="4">
 <li></li>
 </ol>
-<p>**help()**函数用来在交互页面查询自己不清楚的模块，例如</p>
+<p><strong>help()</strong> 函数用来在交互页面查询自己不清楚的模块，例如</p>
 <pre><code class="language-python">help(random)
 </code></pre>
 <ol start="5">
 <li></li>
 </ol>
-<p><em>九九乘法表</em>，如下，需要注意的点是格式化输出的形式，这里的细节是没有<strong>逗号</strong>还有后面的<strong>小括号</strong>。</p>
+<p><em>九九乘法表</em>，如下，需要注意的点是格式化输出的形式，这里的细节是没有 <strong>逗号</strong> 还有后面的 <strong>小括号</strong> 。</p>
 <pre><code class="language-python">for i in range(1,10):
     for j in range (1,i+1):
         print(&quot;%d * %d = %d&quot; %(i,j,i*j))
@@ -211,7 +211,7 @@ if flag == True:
 else :
 	print(&quot;%d is not a prime num&quot;% num)
 </code></pre>
-<p>确实如此，在C++的面向过程学习里面，虽然换了形式，但是那种面向过程的思维，让我觉得眼前的代码写了很多次，<strong>她只是换了面孔与我重逢，既熟悉又陌生。</strong></p>
+<p>确实如此，在C++的面向过程学习里面，虽然换了形式，但是那种面向过程的思维，让我觉得眼前的代码写了很多次， <strong>她只是换了面孔与我重逢，既熟悉又陌生。</strong></p>
 <ol start="7">
 <li></li>
 </ol>
@@ -229,7 +229,7 @@ for i  in range (x,0,-1):
 <ol start="8">
 <li></li>
 </ol>
-<p>函数方法求<strong>组合数（递推）</strong>：</p>
+<p>函数方法求 <strong>组合数（递推）</strong> ：</p>
 <pre><code class="language-python">def fac(num):
 	result =1
 	for n in range (1,num+1):
@@ -244,7 +244,7 @@ print(fac(m)//fac(n)//fac(m-n))
 <ol start="9">
 <li></li>
 </ol>
-<p><strong>不确定参数个数</strong>求和：</p>
+<p><strong>不确定参数个数</strong> 求和：</p>
 <pre><code class="language-python">def add ( *args):
 	total = 0
 	for _ in  args :#这里体现了是相当于可变数组下标索引的方式
@@ -282,13 +282,13 @@ print(work(int (input('Please put in a num :'))))
 <ol start="12">
 <li></li>
 </ol>
-<p>谈到python的作用域，就是：<strong>局部作用域——&gt;嵌套作用域——&gt;全局作用域——&gt;内置作用域</strong></p>
-<p>像 <strong>input（） print（）<strong>等函数就是</strong>内置作用域</strong>的</p>
+<p>谈到python的作用域，就是： <strong>局部作用域——&gt;嵌套作用域——&gt;全局作用域——&gt;内置作用域</strong></p>
+<p>像  <strong>input（） print（）</strong> 等函数就是 <strong>内置作用域</strong> 的</p>
 <p>变量 的来源指定： global a 表示 a 变量来自于全局变量，相似的，nonlocal a 表示 a 来自于嵌套作用域。</p>
 <ol start="13">
 <li></li>
 </ol>
-<p>字符串的拼接与<strong>切片运算</strong>操作</p>
+<p>字符串的拼接与 <strong>切片运算</strong> 操作</p>
 <pre><code class="language-python">s1 = 'hellow ' * 3
 print (s1)
 
@@ -465,7 +465,7 @@ print (sys.getsizeof(f))
 
 
 </code></pre>
-<p><strong>极简的理念，优雅的美</strong>，实在是难得太喜欢了，形意合一的代码风格。</p>
+<p><strong>极简的理念，优雅的美</strong> ，实在是难得太喜欢了，形意合一的代码风格。</p>
 <ol start="21">
 <li></li>
 </ol>
@@ -567,7 +567,7 @@ print (it2)
 #清空字典
 it2.clear()
 </code></pre>
-<p>哈哈哈 ，我<strong>滑稽</strong>的映射内容例子。</p>
+<p>哈哈哈 ，我 <strong>滑稽</strong> 的映射内容例子。</p>
 
               </div>
               <div class="toc-container">
