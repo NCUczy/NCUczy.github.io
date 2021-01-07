@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://NCUczy.github.io</id>
     <title>SuoNi&apos;blog</title>
-    <updated>2021-01-05T06:22:14.109Z</updated>
+    <updated>2021-01-07T09:31:22.560Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://NCUczy.github.io"/>
     <link rel="self" href="https://NCUczy.github.io/atom.xml"/>
@@ -11,7 +11,7 @@
     <icon>https://NCUczy.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, SuoNi&apos;blog</rights>
     <entry>
-        <title type="html"><![CDATA[pygame 贪吃蛇 开发]]></title>
+        <title type="html"><![CDATA[Greedy snake (Pygame)]]></title>
         <id>https://NCUczy.github.io/post/pygame-huan-jing-xia-dui-tan-chi-she-de-kai-fa/</id>
         <link href="https://NCUczy.github.io/post/pygame-huan-jing-xia-dui-tan-chi-she-de-kai-fa/">
         </link>
