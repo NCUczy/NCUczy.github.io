@@ -1,0 +1,720 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Python之路 | SuoNi&#39;blog</title>
+<link rel="shortcut icon" href="https://NCUczy.github.io/favicon.ico?v=1610266817593">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://NCUczy.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="Python之路 | SuoNi&#39;blog - Atom Feed" href="https://NCUczy.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="伟大的无穷，也是从零开始的
+一.概述
+1.对集成环境的安装，在涛学长的推荐下使用了pycharm，并且进行社区版安装与汉化。
+2.学习基础的语法，个人感觉由于已经有了对C++以及其IDE一些知识的了解，学起来并不是那么费劲。
+3.这份博客更..." />
+    <meta name="keywords" content="Python" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://NCUczy.github.io">
+  <img class="avatar" src="https://NCUczy.github.io/images/avatar.png?v=1610266817593" alt="">
+  </a>
+  <h1 class="site-title">
+    SuoNi&#39;blog
+  </h1>
+  <p class="site-description">
+    自强不息，正位凝命。
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="https://space.bilibili.com/355646962" class="menu" target="_blank">
+          B站
+        </a>
+      
+    
+      
+        <a href="https://www.luogu.com.cn/user/398483" class="menu" target="_blank">
+          洛谷
+        </a>
+      
+    
+      
+        <a href="https://y.qq.com/n/m/detail/taoge/index.html?id=2409427962" class="menu" target="_blank">
+          歌单
+        </a>
+      
+    
+      
+        <a href="https://NCUczy.github.io/post/jian-jie" class="menu">
+          作者
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/NCUczy/NCUczy.github.io" target="_blank">
+          <i class="ri-github-line"></i>
+        </a>
+      
+    
+      
+        <a href="https://twitter.com/suoni1919" target="_blank">
+          <i class="ri-twitter-line"></i>
+        </a>
+      
+    
+      
+        <a href="https://weibo.com/6602209984/profile?rightmod=1&amp;wvr=6&amp;mod=personinfo" target="_blank">
+          <i class="ri-weibo-line"></i>
+        </a>
+      
+    
+      
+        <a href="https://www.zhihu.com/people/jun-xiao-57-8" target="_blank">
+          <i class="ri-zhihu-line"></i>
+        </a>
+      
+    
+      
+        <a href="https://www.facebook.com/suo.ni.372/" target="_blank">
+          <i class="ri-facebook-line"></i>
+        </a>
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              Python之路
+            </h2>
+            <div class="post-info">
+              <span>
+                2020-12-28
+              </span>
+              <span>
+                12 min read
+              </span>
+              
+                <a href="https://NCUczy.github.io/tag/Y07TcSyG7/" class="post-tag">
+                  # Python
+                </a>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <p><em><strong>伟大的无穷，也是从零开始的</strong></em></p>
+<h2 id="一概述">一.概述</h2>
+<p>1.对集成环境的安装，在<em>涛学长</em>的推荐下使用了<strong>pycharm</strong>，并且进行社区版安装与汉化。</p>
+<p>2.学习基础的语法，个人感觉由于已经有了对C++以及其IDE一些知识的了解，学起来并不是那么费劲。</p>
+<p>3.这份博客更多的是为了自己以后学习了很多语言，不混淆基本语法，然后作为漫漫长路陪伴自己走下去的一个见证吧，在边学习边这样记录中，目前是有一种想法把<strong>python</strong>作为一种主攻方向并坚持下去的。</p>
+<p>（2020/12/28）</p>
+<h2 id="二面向过程">二.面向过程</h2>
+<h4 id="1对编译器的熟悉与基础函数构架的简单使用">1.对编译器的熟悉与基础函数构架的简单使用：</h4>
+<ol>
+<li></li>
+</ol>
+<p><em><strong>如果有一天，你想学Python我肯定会给你分享这个笔记，我自己亲手打过的代码与描述，首先，不能保证覆盖全部的知识点，其次语言这个东西用什么学什么，不可能全部一次性见完，这个也只是俗成的代码模块，照着打一遍，自己去探索那个规律吧 ，基本上一遍就差不多；</strong></em></p>
+<p>（来自2021年后续补上的第一条）</p>
+<p><em><strong>我们开始吧！</strong></em></p>
+<pre><code class="language-python">print(&quot;good&quot;)
+cool=open('D:/这是一个word文档.doc','a+')
+print('hellow',file=cool)
+cool.close()
+</code></pre>
+<p>这里我调用了函数来在D盘目录下开创了一个 <strong>.doc</strong> 类型的文件并且把“hellow”写入其中，我确实成功的找到了这个文件，并且对了，也在操作台显示出了“good”。</p>
+<ol start="2">
+<li></li>
+</ol>
+<p><strong>for</strong> 循环倒是挺难受的可能是一开始，额 总是忘记“：”，哈哈哈，习惯就好，C++的后遗症，习惯性带”；“</p>
+<pre><code class="language-python">sun=0
+for i in range(1,101):
+	if(i%2==0):
+		sum+=i
+print(sum)
+</code></pre>
+<p>对1到100的偶数求和，外国人真的很喜欢区间左闭右开，无处不在的细节都体现出来了。</p>
+<ol start="3">
+<li></li>
+</ol>
+<p>接下来 就是学C++时候的<em>经典猜数字游戏</em>了， <strong>while：</strong></p>
+<pre><code class="language-python">import random
+
+answer = random.randint(1,100)
+counter = 0
+while True:
+	counter += 1
+	number = int (input(&quot;请输入：&quot;))
+	if number &lt; answer :
+		print('Please more:')
+	elif number&gt;answer:
+		print('please less')
+	else :
+		print('BingGo,you win!')
+		break
+print('Your tries are %d' %counter)
+if counter &gt;7:
+	print('You''re not clever')
+</code></pre>
+<ol start="4">
+<li></li>
+</ol>
+<p><strong>help()</strong> 函数用来在交互页面查询自己不清楚的模块，例如</p>
+<pre><code class="language-python">help(random)
+</code></pre>
+<ol start="5">
+<li></li>
+</ol>
+<p><em>九九乘法表</em>，如下，需要注意的点是格式化输出的形式，这里的细节是没有 <strong>逗号</strong> 还有后面的 <strong>小括号</strong> 。</p>
+<pre><code class="language-python">for i in range(1,10):
+    for j in range (1,i+1):
+        print(&quot;%d * %d = %d&quot; %(i,j,i*j))
+    print()
+</code></pre>
+<ol start="6">
+<li></li>
+</ol>
+<p>面向过程判断素数</p>
+<pre><code class="language-python">from math import sqrt
+
+num =int(input(&quot;please put in a num:&quot;))
+end_=int(sqrt(num))
+flag=True
+for i in range(2,end_+1):
+	if num%i==0:
+		flag=False
+if flag == True:
+	print(&quot;%d is a prime num&quot;% num)
+else :
+	print(&quot;%d is not a prime num&quot;% num)
+</code></pre>
+<p>确实如此，在C++的面向过程学习里面，虽然换了形式，但是那种面向过程的思维，让我觉得眼前的代码写了很多次， <strong>她只是换了面孔与我重逢，既熟悉又陌生。</strong></p>
+<ol start="7">
+<li></li>
+</ol>
+<p>最大公约数 最小公倍数</p>
+<pre><code class="language-python">x=int (input(&quot;x=&quot;))
+y=int (input(&quot;y=&quot;))
+if x &gt; y:
+	x,y=y,x
+for i  in range (x,0,-1):
+	if x%i==0 and y%i==0 :
+		print(&quot;%d and %d ,最大公因数是%d&quot; %(x,y,i))
+		print(&quot;%d and %d ,最小公因数是%d&quot; %(x,y,x*y//i))
+		break
+</code></pre>
+<ol start="8">
+<li></li>
+</ol>
+<p>函数方法求 <strong>组合数（递推）</strong> ：</p>
+<pre><code class="language-python">def fac(num):
+	result =1
+	for n in range (1,num+1):
+		result *= n
+	return result
+
+m = int (input('m = '))
+n = int (input('n = '))
+
+print(fac(m)//fac(n)//fac(m-n))
+</code></pre>
+<ol start="9">
+<li></li>
+</ol>
+<p><strong>不确定参数个数</strong> 求和：</p>
+<pre><code class="language-python">def add ( *args):
+	total = 0
+	for _ in  args :#这里体现了是相当于可变数组下标索引的方式
+		total += _
+	return total
+
+print (add())
+print(add(1,2))
+print(add(1,2,66))
+</code></pre>
+<ol start="10">
+<li></li>
+</ol>
+<p>将上面的add函数放在了 demo3.py 文件里面，于是新建了 main.py 文件里面，这里不同的文件相当于不同的模块，使用如下方法导入模块</p>
+<pre><code class="language-python">from demo3 import add
+print (add(521,1314))
+</code></pre>
+<p>自然就可以使用了 我不禁猜想，数学函数难道就是在系统的一个 math.py文件里面？</p>
+<p>当然，后导入的同名模块函数会覆盖先前的函数！@A@</p>
+<ol start="11">
+<li></li>
+</ol>
+<p>经典的数字倒序输出：</p>
+<pre><code class="language-python">def work (num):
+    temp = num
+    total = 0
+    while temp &gt; 0:
+        total =total * 10 + temp % 10
+        temp //= 10
+    return total
+
+#主函数
+print(work(int (input('Please put in a num :'))))
+</code></pre>
+<ol start="12">
+<li></li>
+</ol>
+<p>谈到python的作用域，就是： <strong>局部作用域——&gt;嵌套作用域——&gt;全局作用域——&gt;内置作用域</strong></p>
+<p>像  <strong>input（） print（）</strong> 等函数就是 <strong>内置作用域</strong> 的</p>
+<p>变量 的来源指定： global a 表示 a 变量来自于全局变量，相似的，nonlocal a 表示 a 来自于嵌套作用域。</p>
+<ol start="13">
+<li></li>
+</ol>
+<p>字符串的拼接与 <strong>切片运算</strong> 操作</p>
+<pre><code class="language-python">s1 = 'hellow ' * 3
+print (s1)
+
+s2 = 'world'
+print (s1+s2)
+
+s3='abc123456789'
+print ('123' in s3)
+print (s3[2:5])
+print (s3[:5])
+print (s3[2::2])
+print (s3[::2])
+print (s3[::-1])
+print (s3[::-2])
+print (s3[-1::-1])
+</code></pre>
+<pre><code>hellow hellow hellow 
+hellow hellow hellow world
+True
+c12
+abc12
+c2468
+ac2468
+987654321cba
+97531b
+987654321cba
+#运行结果
+</code></pre>
+<p>python 的切片操作确实是惊艳到了我</p>
+<p>确实在代码的运用中，爱上这个语言，优雅而简洁，仿佛不是它规定了，而是一种内心的想法，我想这么写。</p>
+<ol start="14">
+<li></li>
+</ol>
+<p>字符串的经典运算：</p>
+<pre><code class="language-python">s = &quot;Czy is a handsome boy ! &quot;
+
+#计算长度
+print (len(s)) #24
+
+#获得首字母大写的拷贝
+print (s.capitalize()) #Czy is a handsome boy !
+
+#标题格式
+print (s.title()) #Czy Is A Handsome Boy !
+
+#全部大写
+print (s.upper()) #CZY IS A HANDSOME BOY !
+
+#查找位置
+print (s.find('is')) #4
+print (s.find('czy')) #-1
+
+#索引下标
+print (s.index('is')) #4
+#print (s.index('czy')) #报错
+
+#检测字符串开头
+print (s.startswith('czy')) #False
+print (s.startswith('Czy')) #True
+
+#检测字符串结尾
+print (s.endswith('!')) #False
+#这里是空格结尾的，不是感叹号
+
+#以指定宽度居中并添加补充字符
+print (s.center(30,'%')) # %%%Czy is a handsome boy ! %%%
+
+#左居
+print (s.ljust(27,'%')) # Czy is a handsome boy ! %%%
+
+#右居
+print (s.rjust(27,'%')) # %%%Czy is a handsome boy !
+
+# 检测是否由数字组成
+print (s.isdigit()) #False
+
+#检测是否由字母组成
+print (s.isalpha()) #False
+
+#检测是否由字母与数字组成
+print (s.isalnum()) #False
+
+#删除左右两侧空格
+print (s.strip()) #Czy is a handsome boy !
+print (s.strip().endswith('!') ) #True
+</code></pre>
+<ol start="15">
+<li></li>
+</ol>
+<p>格式化输出的多样</p>
+<pre><code class="language-python">a, b = 5, 10
+print('%d * %d = %d' % (a, b, a * b))
+print('{0} * {1} = {2}'.format(a, b, a * b))
+print(f'{a} * {b} = {a * b}')
+#5 * 10 = 50
+</code></pre>
+<ol start="16">
+<li></li>
+</ol>
+<p>列表的引入</p>
+<pre><code class="language-python">list1 = [1,1,2,3,6,4,6,889,9]
+print (list1[0:])
+
+#下标索引列表
+for index in range (len(list1)):
+    print (list1[index])
+
+#直接枚举列表成员
+for _ in list1 :
+    print (_)
+
+#enumerate函数处理列表之后遍历同时获得元素索引值与值
+for index , elem in enumerate(list1):
+    print (index ,elem)
+</code></pre>
+<ol start="17">
+<li></li>
+</ol>
+<p>列表的增删操作</p>
+<pre><code class="language-python">list2 = ['czy,handsome,boy,beautiful_girl,love,money',123,654,99]
+print (list)
+
+list2.append(200)#追加
+
+list2.insert(1,222)#在位置插入
+
+print (list2)
+
+#删除操作
+list2.remove(99)
+
+#指定位置删除
+list2.pop(len(list2)-1)
+
+print (list2)
+</code></pre>
+<ol start="18">
+<li></li>
+</ol>
+<p>切片操作，同字符串</p>
+<ol start="19">
+<li></li>
+</ol>
+<p>列表排序入门</p>
+<pre><code class="language-python">lists =[5,5,6,9,6,66,5,555,254,25]
+
+#默认从小打到排序，并没有对lists进行改变
+listed = sorted(lists)
+print (listed)
+
+#打开反转开关
+listed_plus = sorted(lists,reverse = True)
+print (listed_plus)
+
+liststring = ['ssdjsk','sdsdo','sds','soojjjjjoajojao']
+
+#设定key进行类似C++中sort函数cmp参数函数的方法
+list3 = sorted(liststring,key=len,reverse = False)
+print (list3)
+</code></pre>
+<ol start="20">
+<li></li>
+</ol>
+<p>生成器语法</p>
+<pre><code class="language-python">f = [x for x in range (1,11)]
+print (f) # [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+f = [x + y for x in 'ABC'for y in '123']
+print (f) # ['A1', 'A2', 'A3', 'B1', 'B2', 'B3', 'C1', 'C2', 'C3']
+
+#查看f函数占用的空间
+import sys
+print (sys.getsizeof(f))
+
+
+</code></pre>
+<p><strong>极简的理念，优雅的美</strong> ，实在是难得太喜欢了，形意合一的代码风格。</p>
+<ol start="21">
+<li></li>
+</ol>
+<p>关于<code>if __name__=='__main__':</code>的介绍：</p>
+<p>Python是脚本语言，我实验了多次，在不同的py文件里面，当引用其他文件的时候，其实是在执行那个文件，作为脚本是停不下来的，会顺带执行那个文件下的关于函数的调用语句，加上这句代码就可以规避其他文件引用的时候对该调用的执行，我测试了这句代码里的–main–与文件名无关。</p>
+<p>如果不理解，就先放着吧，多试试错就懂了。</p>
+<ol start="22">
+<li></li>
+</ol>
+<p>元组 是不可改变的列表，使用（）</p>
+<p>元组的创建时间与内存占用都优于列表。</p>
+<ol start="23">
+<li></li>
+</ol>
+<p>集合的创建</p>
+<pre><code class="language-python">set1 = {1,11,1,1,122,1,22,22,2,22}
+print (set1) #显然进行了自动排重与排序 {1, 2, 11, 22, 122}
+
+#构造器语法
+set2 = set (range(1,11))
+print (set2) #{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+
+print (set ((1,2,2,2,3,3,2,1)))   # {1, 2, 3}
+
+set3 = {num for num in range (1,100) if num % 3 ==0 or num %5==0}
+print (set3) #100内3与5的倍数集合
+</code></pre>
+<p>24.集合的增删</p>
+<pre><code class="language-python">set1.remove(122)
+print (set1)
+set1.update([100,120])
+print (set1)
+set1.add(6)
+print (set1)
+set1.pop() #删除了第一个元素
+set1.pop()
+print (set1) 
+</code></pre>
+<p>25.集合的数学逻辑运算</p>
+<pre><code class="language-python">s1 ={1,2,3}
+s2 ={2,3,4}
+print (s1 | s2)
+print (s1 &amp; s2)
+print (s1 - s2)
+print (s1 ^ s2)
+print (s1 &gt; s2)
+print (s1 == s2)
+
+'''
+{1, 2, 3, 4}
+{2, 3}
+{1}
+{1, 4}
+False
+False
+'''
+</code></pre>
+<p>26.字典</p>
+<p>说看法，这个东西我感觉跟哈希表很相似，效果也是C++语法的map映射那样，话说Python没有数据类型，有的只是字符串分成的类，其实一直进行的都是面向对象的编程。</p>
+<pre><code class="language-python">#创建字典的字面量用法
+d = {'czy':95,'lol':'good game'}
+print (d)
+#{'czy': 95, 'lol': 'good game'}
+
+#创建字典的构造器语法
+it1 =dict(one =1,two =2,tree = 3,www = 69)
+print (it1)
+#{'one': 1, 'two': 2, 'tree': 3, 'www': 69}
+
+#zip函数把两个序列压缩成字典
+it2 = dict(zip([1,2,3],'445488'))
+print (it2)
+#{1: '4', 2: '4', 3: '5'}
+
+#通过键取值
+print (it1['www'])
+# 69
+print (d['czy'])
+# 95
+
+#更新字典
+it2.update(我爱你 = 999)
+print (it2['我爱你'])
+# 999
+
+#get索引，如果有则为原值，若无则显示默认属性值
+print (it2.get('我',60))
+# 60
+print (it2.get('我爱你',60))
+# 999
+
+#删除字典元素
+print (it2)
+it2.popitem()
+print (it2)
+# {1: '4', 2: '4', 3: '5', '我爱你': 999}
+# {1: '4', 2: '4', 3: '5'} 删除了最后一对键值
+
+#清空字典
+it2.clear()
+</code></pre>
+<p>哈哈哈 ，我 <strong>滑稽</strong> 的映射内容例子。</p>
+<h2 id="三面向对象">三.面向对象</h2>
+<h5 id="1类">1.类</h5>
+<img src="https://i.loli.net/2021/01/01/guFCm3SPAXvNiha.png" style="zoom: 67%;" />
+<p>我用这个图很清晰展示了类的内容概念</p>
+<p>这个呢，我们把  <strong>class</strong>  关键字作为 <strong>类</strong> ，写在类中的函数我们通常叫做  **方法 ** ，</p>
+<p>这些方法就是对象可以接收的消息。</p>
+<h6 id="1创建和使用对象">1.创建和使用对象</h6>
+<p>当我们定义了一个类之后，可以通过下面的方式来创建对象并给对象发送消息</p>
+<pre><code class="language-python">def main():
+    #创建学生对象并且指定姓名与年龄
+    stu1 = Student ('所溺'，19)
+    #给对象发送study消息
+    stu1.study('I love you')
+    #给对象czy发送消息
+    stu1.czy()
+    stu2 = Student ('相里'，19)
+    stu2.study ('looks cool')
+    
+if __name__ == '__main__':
+    main()
+</code></pre>
+<ol start="2">
+<li></li>
+</ol>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E4%B8%80%E6%A6%82%E8%BF%B0">一.概述</a></li>
+<li><a href="#%E4%BA%8C%E9%9D%A2%E5%90%91%E8%BF%87%E7%A8%8B">二.面向过程</a><br>
+*
+<ul>
+<li><a href="#1%E5%AF%B9%E7%BC%96%E8%AF%91%E5%99%A8%E7%9A%84%E7%86%9F%E6%82%89%E4%B8%8E%E5%9F%BA%E7%A1%80%E5%87%BD%E6%95%B0%E6%9E%84%E6%9E%B6%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8">1.对编译器的熟悉与基础函数构架的简单使用：</a></li>
+</ul>
+</li>
+<li><a href="#%E4%B8%89%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1">三.面向对象</a><br>
+*<br>
+*<br>
+* <a href="#1%E7%B1%BB">1.类</a><br>
+* <a href="#1%E5%88%9B%E5%BB%BA%E5%92%8C%E4%BD%BF%E7%94%A8%E5%AF%B9%E8%B1%A1">1.创建和使用对象</a></li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://NCUczy.github.io/post/ha-xi-ying-she/">
+              <h3 class="post-title">
+                哈希映射
+              </h3>
+            </a>
+          </div>
+        
+
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: 'e6dade07380d61e44eb4',
+    clientSecret: 'b3e442437853316ed380c49d0a49a7b36e00e809',
+    repo: 'NCUczy.github.io',
+    owner: 'NCUczy',
+    admin: ['NCUczy'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+          
+
+          
+        
+
+        <div class="site-footer">
+  所溺大魔王
+  <a class="rss" href="https://NCUczy.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>
