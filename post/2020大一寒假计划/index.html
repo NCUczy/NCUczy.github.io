@@ -2,23 +2,24 @@
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>快速幂 | SuoNi&#39;blog</title>
+<title>2020大一寒假计划 | SuoNi&#39;blog</title>
 <link rel="shortcut icon" href="https://NCUczy.github.io/favicon.ico?v=1610346381076">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://NCUczy.github.io/styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="快速幂 | SuoNi&#39;blog - Atom Feed" href="https://NCUczy.github.io/atom.xml">
+<link rel="alternate" type="application/atom+xml" title="2020大一寒假计划 | SuoNi&#39;blog - Atom Feed" href="https://NCUczy.github.io/atom.xml">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
 
-    <meta name="description" content="快速幂的两种基本写法，在执行效率上其实相差不大的。
-递归写法
-typedef long long ll;
-ll binaryPow(ll a,ll b,ll p)
-{
-if(b==0)return 1;//a^0=1
-if(b&amp;1)..." />
-    <meta name="keywords" content="算法C++版本" />
+    <meta name="description" content="1.ACM程序设计竞赛 （争取3月份拿省一
+​	时间上安排一天：5h
+2.人工智能
+​	Python学习：
+​			Python图形页面设计
+​			Python网络爬虫入门级别
+​			Python二维游戏开发设计
+​			Python数..." />
+    <meta name="keywords" content="计划安排" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
     <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
   </head>
@@ -118,84 +119,56 @@ if(b&amp;1)..." />
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              快速幂
+              2020大一寒假计划
             </h2>
             <div class="post-info">
               <span>
-                2020-11-12
+                2021-01-11
               </span>
               <span>
                 1 min read
               </span>
               
-                <a href="https://NCUczy.github.io/tag/TobSHpHcH/" class="post-tag">
-                  # 算法C++版本
+                <a href="https://NCUczy.github.io/tag/O-FOerqHV/" class="post-tag">
+                  # 计划安排
                 </a>
               
             </div>
             
             <div class="post-content-wrapper">
               <div class="post-content">
-                <p>快速幂的两种基本写法，在执行效率上其实相差不大的。</p>
-<h6 id="递归写法">递归写法</h6>
-<pre><code class="language-cpp">typedef long long ll;
-ll binaryPow(ll a,ll b,ll p)
-{
-if(b==0)return 1;//a^0=1
-if(b&amp;1)return a*binaryPow(a,b-1,p)%p;//b%2==1
-else {
-		ll mul =binaryPow(a,b/2,p);
-		return mul*mul%p;
-	}
-}
-</code></pre>
-<h6 id="迭代写法">迭代写法</h6>
-<pre><code class="language-cpp">int power(int a,int b,int p)
-{
-int ans=1%p;
-for(;b;b&gt;&gt;=1){
-if(b&amp;1)ans=(long long)ans*a%p;
-a=(long long )a*a%p;
-}
-	return ans;
-}
-</code></pre>
-<p>​	在这种迭代解法里面，即便是两个数相乘的结果，也是在一个32位的寄存器里，</p>
-<p>所以我没将其中一个强制转化为64位整型参与运算，从而得到正确结果，</p>
-<p>最终对p取模后，隐性转化为int存在ans里面。</p>
+                <p>1<img src="https://i.loli.net/2021/01/11/xLk6S2newTXuqR1.png" alt="" loading="lazy">.ACM程序设计竞赛 （争取3月份拿省一</p>
+<p>​	时间上安排一天：5h</p>
+<p>2.人工智能</p>
+<p>​	Python学习：</p>
+<p>​			Python图形页面设计</p>
+<p>​			Python网络爬虫入门级别</p>
+<p>​			Python二维游戏开发设计</p>
+<p>​			Python数据库进阶</p>
+<p>​	线性代数：</p>
+<p>​			Mooc或者B站宋浩教程 ：</p>
+<p>​			时间安排一天 ：3h</p>
+<p>​	离散数学：</p>
+<p>​			Mooc或者B站宋浩教程：</p>
+<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2021/01/11/iVxwql5duQGRfLE.png" alt="" loading="lazy"></figure>
 
               </div>
               <div class="toc-container">
-                <ul class="markdownIt-TOC">
-<li>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#%E9%80%92%E5%BD%92%E5%86%99%E6%B3%95">递归写法</a></li>
-<li><a href="#%E8%BF%AD%E4%BB%A3%E5%86%99%E6%B3%95">迭代写法</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
+                
               </div>
             </div>
           </article>
         </div>
 
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://NCUczy.github.io/post/beauty-crawler/">
+              <h3 class="post-title">
+                Beauty crawler
+              </h3>
+            </a>
+          </div>
         
 
         
