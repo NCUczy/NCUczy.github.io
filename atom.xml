@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://NCUczy.github.io</id>
     <title>SuoNi&apos;blog</title>
-    <updated>2021-01-28T05:21:54.422Z</updated>
+    <updated>2021-03-18T08:19:58.255Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://NCUczy.github.io"/>
     <link rel="self" href="https://NCUczy.github.io/atom.xml"/>
@@ -10,28 +10,6 @@
     <logo>https://NCUczy.github.io/images/avatar.png</logo>
     <icon>https://NCUczy.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, SuoNi&apos;blog</rights>
-    <entry>
-        <title type="html"><![CDATA[2020大一寒假计划]]></title>
-        <id>https://NCUczy.github.io/post/2020大一寒假计划/</id>
-        <link href="https://NCUczy.github.io/post/2020大一寒假计划/">
-        </link>
-        <updated>2021-01-11T06:25:06.000Z</updated>
-        <content type="html"><![CDATA[<p>1<img src="https://i.loli.net/2021/01/11/xLk6S2newTXuqR1.png" alt="" loading="lazy">.ACM程序设计竞赛 （争取3月份拿省一</p>
-<p>​	时间上安排一天：5h</p>
-<p>2.人工智能</p>
-<p>​	Python学习：</p>
-<p>​			Python图形页面设计</p>
-<p>​			Python网络爬虫入门级别</p>
-<p>​			Python二维游戏开发设计</p>
-<p>​			Python数据库进阶</p>
-<p>​	线性代数：</p>
-<p>​			Mooc或者B站宋浩教程 ：</p>
-<p>​			时间安排一天 ：3h</p>
-<p>​	离散数学：</p>
-<p>​			Mooc或者B站宋浩教程：</p>
-<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2021/01/11/iVxwql5duQGRfLE.png" alt="" loading="lazy"></figure>
-]]></content>
-    </entry>
     <entry>
         <title type="html"><![CDATA[Beauty crawler]]></title>
         <id>https://NCUczy.github.io/post/beauty-crawler/</id>
@@ -1384,6 +1362,282 @@ int main() {
 </code></pre>
 <h4 id="没什么好说的就是单纯的菜">没什么好说的，就是单纯的菜</h4>
 <p>（后续待更，电子竞技就是永不言败</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[基础算法]]></title>
+        <id>https://NCUczy.github.io/post/ji-chu-suan-fa/</id>
+        <link href="https://NCUczy.github.io/post/ji-chu-suan-fa/">
+        </link>
+        <updated>2020-12-03T16:19:28.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="记录学习小轨迹qvq">记录学习小轨迹QVQ</h2>
+<ol>
+<li>
+<h4 id="sort函数">sort函数</h4>
+</li>
+</ol>
+<pre><code class="language-cpp">sort(a+1,a+n+1);
+//这里代表了对a数组从下标1到n，
+//进行从小到大的排序，属于默认用法。
+sort(a+1,a+n+1,cmp);
+//进阶使用cmp函数作为标准对排序进行校正，
+//一般使用方法如下：
+bool cmp(数据类型 a，数据类型 b){
+	if(a&gt;b)return true;
+    else return false;
+}
+//true 表示交换，以上会将序列降序排列。
+//通常这种排序方法结合“结构体”(struct)对同学成绩以及姓名字典序进行排序。
+举个例子
+    struct person{
+	int num,len;
+	string xx;
+}cc[22];
+bool cpm(person a,person b){
+	if(a.len&gt;b.len)return 1;
+	if(a.len==b.len&amp;&amp;a.xx&gt;b.xx)return 0;
+	return 1;
+}
+	sort(cc+1,cc+1+n,cpm);
+//这里定义了结构体类型Person,内置int string等数据类型，并通过
+//cmp函数自定义排序规则，最后由sort函数进行排序，是结构体数组的使用范例。
+
+##注意：cmp函数内部判断相等的时候，return true会WA，养成好习惯。
+</code></pre>
+<ol start="2">
+<li>
+<h4 id="二分搜索">二分搜索</h4>
+<p>1.手写二分(根据情况选择)</p>
+<pre><code class="language-cpp">	while(left&lt;=right){//循环条件，也通常在此处设定精度
+		int mid=(left+right)/2;//设立搜索中点
+		tmp=0;
+		for(int i=1;i&lt;=n;i++) 
+		    if(high[i]&gt;mid) tmp+=high[i]-mid;//这里是关键大体思路是“大了小一些，小了大一些”，不断循环把左边界或者右边界交给mid
+		if(tmp&lt;m) right=mid-1;
+		else left=mid+1;
+	}
+</code></pre>
+<p>2.函数二分(神器)</p>
+<p>upper_bound()</p>
+<p>lower_bound()</p>
+<p>binary_search()</p>
+<p>​		upper_bound() 函数定义在<code>&lt;algorithm&gt;</code>头文件中，用于在指定范围内查找大于目标值的第一个元素。</p>
+<p>​		lower_bound() 函数定义在<code>&lt;algorithm&gt;</code>头文件中，用于在指定范围内查找大于等于目标值的第一个元素。</p>
+<p>看得出来，两个函数对搜索边界的标准不同，各有适合的语境。</p>
+<p>使用条件是不降序列哦！QAQ</p>
+<pre><code class="language-cpp">lower_bound(起始地址，结束地址，要查找的数值) //返回的是数值 第一个 出现的位置。
+
+upper_bound(起始地址，结束地址，要查找的数值) //返回的是 第一个大于待查找数值 出现的位置。
+
+binary_search(起始地址，结束地址，要查找的数值)  //返回的是是否存在这么一个数，是一个bool值。
+</code></pre>
+<pre><code class="language-cpp">在first和last中的前闭后开区间进行二分查找，返回与val比较后满足条件的第一个元素位置。如果所有元素都不满足，则返回last的位置.
+注意：如果所有元素都小于val，则返回last的位置，且last的位置是越界的QVQ
+</code></pre>
+<h4 id="3stl大法">3.STL大法</h4>
+<p>queue队列</p>
+<pre><code class="language-cpp">先进先出（不能插队
+常用内部函数：
+size():判断大小
+empty():判断是否为空
+push():放入一个元素
+front() :返回队头元素
+back():返回队尾元素
+pop():弹出队头元素
+</code></pre>
+<p>priority_queue 优先队列，默认是大根堆（大根堆：放进去的时候就以及从大到小排序，大的在前面）。</p>
+<pre><code class="language-cpp">priority_queue（）常用函数：
+
+push() 插入一个元素
+top() 返回堆顶元素（可不是front）
+pop() 弹出堆顶元素
+//升序队列，小顶堆
+</code></pre>
+</li>
+</ol>
+<p>priority_queue &lt;int,vector<int>,greater<int> &gt; q;<br>
+//降序队列，大顶堆<br>
+priority_queue &lt;int,vector<int>,less<int> &gt;q;</p>
+<p>//greater和less是std实现的两个仿函数（就是使一个类的使用看上去像一个函数。其实现就是类中实现一个operator()，这个类就有了类似函数的行为，就是一个仿函数类了）</p>
+<pre><code>
+stack栈
+
+```cpp
+先进后出（类似子弹上膛压栈
+内部常用函数：
+
+size()
+empty()
+push() 向栈顶插入一个元素
+top() 返回栈顶元素
+pop() 弹出栈顶元素
+</code></pre>
+<p>deque 双端队列</p>
+<pre><code class="language-cpp">支持数组运算
+内部函数：
+
+size()
+empty()
+clear()
+front()/back()
+push_back()/pop_back()
+push_front()/pop_front()
+begin()/end()
+[] 支持数组运算
+</code></pre>
+<p>map 映射</p>
+<pre><code>map&lt;标签，类型&gt;
+类似于数组的下角标，map&lt;int，int&gt; 第一个int做到的就是和数组 a[ ]中括号里面作用类似：
+map不止支持int int ，很多其他类型也支持，以后做补充。
+主要是用作map桶的思想，也可以类似哈希进行索引
+</code></pre>
+<p>vector 向量（额，就叫变长数组吧 ）</p>
+<pre><code class="language-cpp">神器很好用
+就是一个无限增长的数组
+内部常用函数:
+
+size() 返回元素个数
+empty() 返回是否为空
+clear() 清空
+front()/back()
+push_back()/pop_back()
+begin()/end()
+[ ]支持数组形式直接访问
+</code></pre>
+<h6 id="以上是一些stl容器库的简介具体的使用在特定情况下也是呼之欲出8~">以上是一些STL容器库的简介，具体的使用在特定情况下也是呼之欲出8~</h6>
+<h4 id="4高精度算法">4.高精度算法</h4>
+<p>这个应该算SuoNi第一个正式学习的算法了，当时刚刚入门C++，也是小白一枚，看到长长的模板感觉就不简单，话不多说，例题来凑呗，记录这个算法的学习过程。</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">题</mi><mi mathvariant="normal">目</mi><mi mathvariant="normal">描</mi><mi mathvariant="normal">述</mi><mi mathvariant="normal">就</mi><mi mathvariant="normal">是</mi><mi>a</mi><mo>+</mo><mi>b</mi><mi mathvariant="normal">，</mi><mi mathvariant="normal">只</mi><mi mathvariant="normal">是</mi><mi mathvariant="normal">有</mi><mi mathvariant="normal">这</mi><mi mathvariant="normal">个</mi><mi mathvariant="normal">条</mi><mi mathvariant="normal">件</mi><mi>a</mi><mo separator="true">,</mo><mi>b</mi><mo>≤</mo><mn>1</mn><msup><mn>0</mn><mn>500</mn></msup></mrow><annotation encoding="application/x-tex">题目描述就是a+b，只是有这个条件
+a,b \leq 10^{500}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord cjk_fallback">题</span><span class="mord cjk_fallback">目</span><span class="mord cjk_fallback">描</span><span class="mord cjk_fallback">述</span><span class="mord cjk_fallback">就</span><span class="mord cjk_fallback">是</span><span class="mord mathdefault">a</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">b</span><span class="mord cjk_fallback">，</span><span class="mord cjk_fallback">只</span><span class="mord cjk_fallback">是</span><span class="mord cjk_fallback">有</span><span class="mord cjk_fallback">这</span><span class="mord cjk_fallback">个</span><span class="mord cjk_fallback">条</span><span class="mord cjk_fallback">件</span><span class="mord mathdefault">a</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">b</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8641079999999999em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641079999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">5</span><span class="mord mtight">0</span><span class="mord mtight">0</span></span></span></span></span></span></span></span></span></span></span></span></span></p>
+<pre><code class="language-cpp">//这是我最初AC代码2020/12/6
+#include&lt;bits/stdc++.h&gt;
+using namespace std;
+int cc[505];//作为储存答案的数组
+int aa[505],bb[505];char a[505],b[505];
+int main()	
+{
+	
+	scanf(&quot;%s&quot;,a);
+	scanf(&quot;%s&quot;,b);//我们用读入字符串的形式把a与b存进来
+	int la=strlen(a);
+	int lb=strlen(b);//获得a与b的长度
+	int lc=max(la,lb)+1;//这个代表着a+b最多能达到的长度，加法嘛自然是多一位就到头喽
+
+	for(int i=0;i&lt;la;i++){
+		aa[la-i-1]=a[i]-'0';
+	}//这里的操作是把char转化成数字然后倒序读入到aa数组
+	for(int i=0;i&lt;lb;i++){
+		bb[lb-i-1]=b[i]-'0';
+	}//同上
+	for(int i=0;i&lt;lc;i++){
+		cc[i]+=aa[i]+bb[i];//模拟单个位加法
+		cc[i+1]=cc[i]/10;//将单个位的十位进一
+		cc[i]=cc[i]%10;//对本位则是取余操作
+	}
+	if(cc[lc-1]==0)lc--;//剔除前导零的操作，通过控制数组的输出长度来控制
+	for(int i=lc-1;i&gt;=0;i--){
+		printf(&quot;%d&quot;,cc[i]);
+		
+	}//倒叙输出 
+	return 0;
+}//完结撒花QAQ
+</code></pre>
+<h6 id="这么能少得了高精度乘法呢嘿嘿所溺大魔王可是循序渐进的哦~~">这么能少得了高精度乘法呢，嘿嘿所溺大魔王可是循序渐进的哦~~</h6>
+<p>数据规模同上，直接附代码模板吧QVQ：</p>
+<pre><code class="language-cpp">//高精度乘法update2020/12/06
+#include&lt;bits/stdc++.h&gt;
+using namespace std;
+char a[2005],b[2005];
+int aa[2005],bb[2005],cc[5005];//同加法，不解释
+int main()
+{int la,lb,lc;
+	scanf(&quot;%s&quot;,a);
+	scanf(&quot;%s&quot;,b);
+	la=strlen(a);lb=strlen(b);
+	lc=la+lb;//值得注意的这里同a+b有区分哦QWQ
+	for(int i=0;i&lt;la;i++){
+		aa[la-i]=a[i]-'0';
+	}
+	for(int i=0;i&lt;lb;i++){
+		bb[lb-i]=b[i]-'0';
+	}//熟悉的配方 熟悉的套路
+	
+	for(int i=1;i&lt;=la;i++){
+		for(int j=1;j&lt;=lb;j++)
+		{
+			cc[i+j-1]+=aa[i]*bb[j];
+			cc[i+j]+=cc[i+j-1]/10;
+			cc[i+j-1]=cc[i+j-1]%10;
+		}//这里是核心代码了，为什么要开2重循环呢，因为模拟乘法的时候，要挨个数位进行相乘嘞，所以时间复杂度O会比加法高那么一丢丢哈哈哈
+	}
+	
+	while(cc[lc]==0&amp;&amp;lc&gt;1)lc--;//前导零不解释
+	for(int i=lc;i&gt;=1;i--){
+
+		printf(&quot;%d&quot;,cc[i]);
+	}//倒叙输出
+	return 0;//The end Bye!!@#@
+}
+</code></pre>
+<h6 id="趁热打铁学会了高精度加法跟高精度乘法想起来了之前刷过的阶乘之和对没错高精加配合高精乘">趁热打铁，学会了高精度加法跟高精度乘法，想起来了之前刷过的阶乘之和，对没错，高精加配合高精乘</h6>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">用</mi><mi mathvariant="normal">高</mi><mi mathvariant="normal">精</mi><mi mathvariant="normal">度</mi><mi mathvariant="normal">计</mi><mi mathvariant="normal">算</mi><mi mathvariant="normal">出</mi><mi>S</mi><mo>=</mo><mn>1</mn><mo>!</mo><mo>+</mo><mn>2</mn><mo>!</mo><mo>+</mo><mn>3</mn><mo>!</mo><mo>+</mo><mo>…</mo><mo>+</mo><mi>n</mi><mo>!</mo><mo>(</mo><mi>n</mi><mo>≤</mo><mn>50</mn><mo>)</mo><mi>S</mi><mo>=</mo><mn>1</mn><mo>!</mo><mo>+</mo><mn>2</mn><mo>!</mo><mo>+</mo><mn>3</mn><mo>!</mo><mo>+</mo><mo>…</mo><mo>+</mo><mi>n</mi><mo>!</mo><mo>(</mo><mi>n</mi><mo>≤</mo><mn>50</mn><mo>)</mo><mi mathvariant="normal">其</mi><mi mathvariant="normal">中</mi><mi mathvariant="normal">“</mi><mo>!</mo><mi mathvariant="normal">”</mi><mi mathvariant="normal">表</mi><mi mathvariant="normal">示</mi><mi mathvariant="normal">阶</mi><mi mathvariant="normal">乘</mi><mi mathvariant="normal">，</mi><mi mathvariant="normal">例</mi><mi mathvariant="normal">如</mi><mi mathvariant="normal">：</mi><mn>5</mn><mo>!</mo><mo>=</mo><mn>5</mn><mo>×</mo><mn>4</mn><mo>×</mo><mn>3</mn><mo>×</mo><mn>2</mn><mo>×</mo><mn>15</mn><mo>!</mo><mo>=</mo><mn>5</mn><mo>×</mo><mn>4</mn><mo>×</mo><mn>3</mn><mo>×</mo><mn>2</mn><mo>×</mo><mn>1</mn><mi mathvariant="normal">。</mi></mrow><annotation encoding="application/x-tex">用高精度计算出S=1!+2!+3!+…+n! (n≤50)S=1!+2!+3!+…+n!(n≤50)
+
+其中“!”表示阶乘，例如：5!=5 \times 4 \times 3 \times 2 \times 15!=5×4×3×2×1。
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord cjk_fallback">用</span><span class="mord cjk_fallback">高</span><span class="mord cjk_fallback">精</span><span class="mord cjk_fallback">度</span><span class="mord cjk_fallback">计</span><span class="mord cjk_fallback">算</span><span class="mord cjk_fallback">出</span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="mord">1</span><span class="mclose">!</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="mord">2</span><span class="mclose">!</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="mord">3</span><span class="mclose">!</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">n</span><span class="mclose">!</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">5</span><span class="mord">0</span><span class="mclose">)</span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="mord">1</span><span class="mclose">!</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="mord">2</span><span class="mclose">!</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="mord">3</span><span class="mclose">!</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">n</span><span class="mclose">!</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">5</span><span class="mord">0</span><span class="mclose">)</span><span class="mord cjk_fallback">其</span><span class="mord cjk_fallback">中</span><span class="mord">“</span><span class="mclose">!</span><span class="mord">”</span><span class="mord cjk_fallback">表</span><span class="mord cjk_fallback">示</span><span class="mord cjk_fallback">阶</span><span class="mord cjk_fallback">乘</span><span class="mord cjk_fallback">，</span><span class="mord cjk_fallback">例</span><span class="mord cjk_fallback">如</span><span class="mord cjk_fallback">：</span><span class="mord">5</span><span class="mclose">!</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">5</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">4</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">3</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">5</span><span class="mclose">!</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">5</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">4</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">3</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord cjk_fallback">。</span></span></span></span></span></p>
+<p>直接上代码，放码过来啦啦啦啦！@###@</p>
+<pre><code class="language-cpp">#include&lt;iostream&gt;
+#include&lt;bits/stdc++.h&gt;
+using namespace std;
+int a[2000];
+int b[2000];
+int c[2000];
+int sum[2000];
+void pplus(int *a,int *c)//显然是高精度加法呗plus
+{
+	int jw=0;//进位
+	for(int i=1;i&lt;=1000;i++)
+	{
+		c[i]+=a[i]+jw;//模拟进位
+		jw=c[i]/10;//搞上去呀
+		c[i]%=10;//本位取余保留
+	}
+}
+void cheng(int *a,int c)//高精度乘法，cheng哈哈哈不解释
+{
+	int jw=0;
+	for(int i=1;i&lt;=1000;i++)
+	{
+		a[i]=a[i]*c+jw;//注意上面的参数，*a是数组元素地址，c是变量
+		jw=a[i]/10;
+		a[i]%=10;//轻车熟路了
+	}
+}
+int main()//我们朴实无华的主函数在这里
+{
+	int n;
+	cin&gt;&gt;n;
+	a[1]=1;//阶乘的开始同时也是结束，想起来《百年孤独》命运的难逃……
+	for(int i=1;i&lt;=n;i++)
+	{
+		cheng(a,i);//不断调用
+		pplus(a,c);//接着调用
+	}
+	bool flag=0;//立个flag！！
+	for(int i=1000;i&gt;=1;i--)
+	{
+		if(c[i]!=0) flag=1;
+		if(flag) cout&lt;&lt;c[i];
+	}
+    return 0;
+}//长路漫漫，终于完结啦，撒花撒花撒花QMQ
+</code></pre>
+<h3 id="高精度减法与高精度除法其实我还没学">高精度减法与高精度除法（其实我还没学</h3>
+<h5 id="这里打一个桩函数">这里打一个桩函数</h5>
+<pre><code class="language-cpp">SuoNi记得来填坑，啥时候学习了就来补上咯 
+2020/12/6
+哈哈哈这就是flag！
+</code></pre>
 ]]></content>
     </entry>
 </feed>
