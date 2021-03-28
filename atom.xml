@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://NCUczy.github.io</id>
-    <title>SuoNi&apos;blog</title>
-    <updated>2021-03-27T13:44:15.014Z</updated>
+    <title>所溺博客</title>
+    <updated>2021-03-28T05:51:22.489Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://NCUczy.github.io"/>
     <link rel="self" href="https://NCUczy.github.io/atom.xml"/>
     <subtitle>咕咕咕</subtitle>
     <logo>https://NCUczy.github.io/images/avatar.png</logo>
     <icon>https://NCUczy.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2021, SuoNi&apos;blog</rights>
+    <rights>All rights reserved 2021, 所溺博客</rights>
     <entry>
         <title type="html"><![CDATA[Request与BeautifulSoup下的网络爬虫]]></title>
         <id>https://NCUczy.github.io/post/beauty-crawler/</id>
