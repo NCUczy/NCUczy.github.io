@@ -1,165 +1,186 @@
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>所溺博客</title>
-<link rel="shortcut icon" href="https://NCUczy.github.io/favicon.ico?v=1616913238983">
-<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+    <meta charset="utf-8" >
+
+<title>文章归档 | 所溺博客</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://NCUczy.github.io/favicon.ico?v=1620106808658">
 <link rel="stylesheet" href="https://NCUczy.github.io/styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="所溺博客 - Atom Feed" href="https://NCUczy.github.io/atom.xml">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
 
-    <meta name="description" content="咕咕咕" />
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="咕咕咕">
   </head>
   <body>
-    <div class="main">
-      <div class="main-content">
-        <div class="site-header">
-  <a href="https://NCUczy.github.io">
-  <img class="avatar" src="https://NCUczy.github.io/images/avatar.png?v=1616913238983" alt="">
-  </a>
-  <h1 class="site-title">
-    所溺博客
-  </h1>
-  <p class="site-description">
-    咕咕咕
-  </p>
-  <div class="menu-container">
-    
-      
-        <a href="/" class="menu">
-          首页
-        </a>
-      
-    
-      
-        <a href="/tags" class="menu">
-          标签
-        </a>
-      
-    
-      
-        <a href="/archives" class="menu">
-          归档
-        </a>
-      
-    
-      
-        <a href="https://NCUczy.github.io/post/jian-jie" class="menu">
-          作者
-        </a>
-      
-    
-  </div>
-  <div class="social-container">
-    
-      
-        <a href="https://github.com/NCUczy/NCUczy.github.io" target="_blank">
-          <i class="ri-github-line"></i>
-        </a>
-      
-    
-      
-        <a href="https://twitter.com/suoni1919" target="_blank">
-          <i class="ri-twitter-line"></i>
-        </a>
-      
-    
-      
-        <a href="https://weibo.com/6602209984/profile?rightmod=1&amp;wvr=6&amp;mod=personinfo" target="_blank">
-          <i class="ri-weibo-line"></i>
-        </a>
-      
-    
-      
-        <a href="https://www.zhihu.com/people/jun-xiao-57-8" target="_blank">
-          <i class="ri-zhihu-line"></i>
-        </a>
-      
-    
-      
-        <a href="https://www.facebook.com/suo.ni.372/" target="_blank">
-          <i class="ri-facebook-line"></i>
-        </a>
-      
-    
-  </div>
-</div>
+    <div id="app" class="main">
 
-    
-        
-
-<div class="archives-container">
-  
-    <h2 class="year">2021</h2>
-    
-      
-        <a href="https://NCUczy.github.io/post/爬虫-美女-python/" class="post">
-          <h2 class="post-title">
-            Request与BeautifulSoup下的网络爬虫
-          </h2>
-          <div class="time">2021-01-10</div>
-        </a>
-      
-    
-      
-        <a href="https://NCUczy.github.io/post/贪吃蛇-py-python-开发/" class="post">
-          <h2 class="post-title">
-            pygame下的贪吃蛇开发
-          </h2>
-          <div class="time">2021-01-03</div>
-        </a>
-      
-    
-      
-    
-      
-    
-  
-    <h2 class="year">2020</h2>
-    
-      
-    
-      
-    
-      
-        <a href="https://NCUczy.github.io/post/ha-xi-ying-she/" class="post">
-          <h2 class="post-title">
-            哈希映射
-          </h2>
-          <div class="time">2020-12-27</div>
-        </a>
-      
-    
-      
-        <a href="https://NCUczy.github.io/post/拓展-欧几里得-算法/" class="post">
-          <h2 class="post-title">
-            拓展欧几里得算法
-          </h2>
-          <div class="time">2020-12-22</div>
-        </a>
-      
-    
-  
-</div>
-
-    
-        <div class="pagination-container">
-  
-  
-</div>
-
-    
-        <div class="site-footer">
-  且听风吟
-  <a class="rss" href="https://NCUczy.github.io/atom.xml" target="_blank">
-    <i class="ri-rss-line"></i> RSS
-  </a>
-</div>
-
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://NCUczy.github.io">
+        <img src="https://NCUczy.github.io/images/avatar.png?v=1620106808658" class="site-logo">
+        <h1 class="site-title">所溺博客</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
       </div>
     </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="https://NCUczy.github.io/post/jian-jie" class="site-nav">
+            作者
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      咕咕咕
+    </div>
+    <div class="site-footer">
+      且听风吟 | <a class="rss" href="https://NCUczy.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          
+
+          <h2 class="archives-title">文章归档</h2>
+          <div class="archives-container">
+            
+              <h2 class="year" data-aos="fade-in" data-aos-delay="500">2021</h2>
+              
+                
+                  <article class="post">
+                    <a href="https://NCUczy.github.io/post/爬虫-美女-python/">
+                      <h2 class="post-title">
+                        Request与BeautifulSoup下的网络爬虫
+                      </h2>
+                    </a>
+                  </article>
+                
+              
+                
+                  <article class="post">
+                    <a href="https://NCUczy.github.io/post/贪吃蛇-py-python-开发/">
+                      <h2 class="post-title">
+                        pygame下的贪吃蛇开发
+                      </h2>
+                    </a>
+                  </article>
+                
+              
+                
+              
+                
+              
+            
+              <h2 class="year" data-aos="fade-in" data-aos-delay="500">2020</h2>
+              
+                
+              
+                
+              
+                
+                  <article class="post">
+                    <a href="https://NCUczy.github.io/post/ha-xi-ying-she/">
+                      <h2 class="post-title">
+                        哈希映射
+                      </h2>
+                    </a>
+                  </article>
+                
+              
+                
+                  <article class="post">
+                    <a href="https://NCUczy.github.io/post/拓展-欧几里得-算法/">
+                      <h2 class="post-title">
+                        拓展欧几里得算法
+                      </h2>
+                    </a>
+                  </article>
+                
+              
+            
+          </div>
+
+          <div class="pagination-container">
+  
+  
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+
   </body>
 </html>
