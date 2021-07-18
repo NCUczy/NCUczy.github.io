@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://NCUczy.github.io</id>
     <title>所溺博客</title>
-    <updated>2021-05-04T05:41:31.534Z</updated>
+    <updated>2021-07-18T04:35:42.809Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://NCUczy.github.io"/>
     <link rel="self" href="https://NCUczy.github.io/atom.xml"/>
@@ -10,6 +10,226 @@
     <logo>https://NCUczy.github.io/images/avatar.png</logo>
     <icon>https://NCUczy.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, 所溺博客</rights>
+    <entry>
+        <title type="html"><![CDATA[第一场牛客（勇敢牛牛，不怕困难）]]></title>
+        <id>https://NCUczy.github.io/post/di-yi-chang-niu-ke-yong-gan-niu-niu-bu-pa-kun-nan/</id>
+        <link href="https://NCUczy.github.io/post/di-yi-chang-niu-ke-yong-gan-niu-niu-bu-pa-kun-nan/">
+        </link>
+        <updated>2021-07-18T04:35:02.000Z</updated>
+        <content type="html"><![CDATA[<p>A题：</p>
+<p>题意： 两人博弈，每次一个人从一堆中拿 k 个，同时从另一堆拿 k * s(s &gt;= 0) 个，问谁先不能拿。</p>
+<p>10000 组数据，N &lt;= 5000</p>
+<p>解题思路：暴力模拟 推理得：A一次能直接拿完A赢 拿不完B赢</p>
+<p>代码：</p>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;cstdio&gt;
+#include &lt;cstring&gt;
+#include &lt;cmath&gt;
+#include &lt;cstring&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+#define N 5010
+bool ans[N][N];
+
+void pre_work(){
+	//赋初值
+	ans[0][0]=0;
+	//穷举   一次能拿完的话A赢 不然B赢
+	for(int i=0;i&lt;=5000;i++){
+		for(int j=0;j&lt;=5000;j++){
+			//已经被赋值 跳过 
+			if(ans[i][j]==1)continue;
+			//一堆取k个 另一堆取k*l 穷举
+			for(int k=1;k+i&lt;=5000;k++){
+				for(int l=0;l*k+j&lt;=5000;l++){
+					ans[k+i][l*k+j]=1;
+				}
+			}
+			//从第二堆取k个  从第一堆取k*l个
+			for(int k=1;k+j&lt;=5000;k++){
+				for(int l=0;l*k+i&lt;=5000;l++){
+					ans[l*k+i][k+j]=1;
+				}
+			} 
+		}
+	} 
+} 
+
+int main(){
+	pre_work();
+	int t;
+	cin&gt;&gt;t;
+	while(t--){
+		int n,m;
+		cin&gt;&gt;n&gt;&gt;m;
+		
+		if(ans[n][m]==1)cout&lt;&lt;&quot;Alice&quot;&lt;&lt;endl;
+		else cout&lt;&lt;&quot;Bob&quot;&lt;&lt;endl;
+	}
+	return 0;
+}
+
+</code></pre>
+<p>B题：球卡在了梯形内，求卡住的高度是多少？</p>
+<p>思路：数学推理，将梯形补成三角形，根据两次相似求得高度；</p>
+<figure data-type="image" tabindex="1"><img src="C:/Users/86159/AppData/Local/Temp/msohtmlclip1/01/clip_image002.gif" alt="9058e8627d407180c5c0f07627ca3dd" loading="lazy"></figure>
+<p>代码：</p>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include &lt;cmath&gt;
+#include &lt;stdio.h&gt;
+using namespace std;
+#define eps 1e-7;
+
+int main(){
+	double a,r,b,h,x,l,j;
+	cin&gt;&gt;r&gt;&gt;a&gt;&gt;b&gt;&gt;h;
+	if(b&gt;2*r){
+		//掉下去
+		cout&lt;&lt;&quot;Drop&quot;&lt;&lt;endl;
+		return 0;	
+	}else{
+		cout&lt;&lt;&quot;Stuck&quot;&lt;&lt;endl;
+		j =atan(2*h/(a-b));
+		//cout&lt;&lt;&quot;角度：&quot;&lt;&lt;j&lt;&lt;endl;
+		l=r/cos(j);
+		//cout&lt;&lt;&quot;总长：&quot;&lt;&lt;l&lt;&lt;endl;
+		x=b*tan(j)/2;
+		//cout&lt;&lt;&quot;下半部分：&quot;&lt;&lt;x&lt;&lt;endl;
+		printf(&quot;%.10lf&quot;,l-x);
+	}
+	return 0;
+}
+
+
+</code></pre>
+<p>D：题意：给出一个 n<em>n 的 01 矩阵，要用一个 1</em>m 的矩阵去覆盖一段 0，求方案数。</p>
+<p>解题思路：</p>
+<p>1)将两个字符数组储存，利用kmp算法进行匹配,累加每一行的答案；</p>
+<ol start="2">
+<li>直接暴力模拟</li>
+</ol>
+<p>代码：</p>
+<p>KMP算法：</p>
+<pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+typedef long long ll;
+const int maxn=1e6+5;
+char str[maxn],mo[maxn];
+int Next[maxn];
+
+void getNext(){
+    Next[0]=-1;
+    int len=strlen(mo),k=-1;
+    for(int i=1;i&lt;len;i++){
+        while(k&gt;-1&amp;&amp;mo[k+1]!=mo[i])k=Next[k];
+        if(mo[k+1]==mo[i])k++;
+        Next[i]=k;
+    }
+}
+int Kmp(){
+    getNext();
+    int len1=strlen(str),len2=strlen(mo),k=-1,ans=0;
+    for(int i=0;i&lt;len1;i++){
+        while(k&gt;-1&amp;&amp;mo[k+1]!=str[i])k=Next[k];
+        if(mo[k+1]==str[i])k++;
+        if(k==len2-1){
+            k=Next[k];
+            ans++;
+        }
+    }
+    return ans;
+}
+
+char M[2005][2005];
+int main(){
+	int n,m;
+	scanf(&quot;%d %d&quot;,&amp;n,&amp;m);
+	for(int i=1;i&lt;=n;i++){
+		scanf(&quot;%s&quot;,&amp;M[i]);
+	}
+	int ans=0;
+	scanf(&quot;%s&quot;,&amp;M[0]);
+	for(int i=0;i&lt;m;i++)M[0][i]='0';
+	for(int i=1;i&lt;=n;i++){
+		strcpy(str,M[i]);
+		//printf(&quot;%s\n&quot;,str);
+		strcpy(mo,M[0]);
+		//printf(&quot;%s\n&quot;,mo);
+		ans+=Kmp();
+		memset(Next,0,sizeof(Next));
+		memset(str,'\0',sizeof(str));
+		memset(mo,'\0',sizeof(mo));
+	}
+	for(int i=0;i&lt;strlen(str);i++)cout&lt;&lt;str[0];
+	printf(&quot;%d\n&quot;,ans);
+    return 0;
+}
+
+
+
+暴力模拟：
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+using namespace std;
+typedef long long ll;
+
+int main(){
+	int n,m;
+	cin&gt;&gt;n&gt;&gt;m;
+	ll ans=0;
+	for(int i=0;i&lt;n;i++){
+		ll cnt=0;
+		string s;
+		cin&gt;&gt;s;
+		for(int j=0;j&lt;s.size();j++){
+			if(cnt==m&amp;&amp;s[j]=='0')cnt--;
+			
+			if(s[j]=='0')cnt++;
+			else cnt=0;
+			if(cnt==m)ans++;
+		}
+	}
+	cout&lt;&lt;ans&lt;&lt;endl;
+} 
+
+</code></pre>
+<p>F题：</p>
+<p>题意：定义一个自然数是 3-friendly 的，如果它存在一个子串（允许前导0）是 3 的倍数。多组数据，求 L~R 中 3-friendly 的数的个数。</p>
+<p>解题思路：推理得：三位数及以上一定是，个位数打表，两位数暴力，利用前缀和速度求解。</p>
+<p>代码：</p>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+using namespace std;
+typedef long long ll;
+ll dp[105]={0,0,0,1,1,1,2,2,2,3}; //前缀和数组  个位数直接打表 
+ll t,lef,rig;
+
+ll ans(ll x){
+	if(x&lt;=99) return dp[x];
+	//推理得  三位数及以上 一定满足条件  返回个数加之前的 
+	else return x-99+dp[99];
+}
+
+int main(){
+	for(int i=10;i&lt;=99;i++){
+		if(i%10%3==0||i/10%3==0||i%3==0){
+			//判断是否满足条件   个位数 十位数  整体 
+			dp[i]=dp[i-1]+1;
+		}else{
+			dp[i]=dp[i-1];
+		}		
+	}
+	cin&gt;&gt;t;
+	while(t--){
+		cin&gt;&gt;lef&gt;&gt;rig;
+		cout&lt;&lt;ans(rig)-ans(lef-1)&lt;&lt;endl;
+	}
+	return 0;
+} 
+
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Request与BeautifulSoup下的网络爬虫]]></title>
         <id>https://NCUczy.github.io/post/爬虫-美女-python/</id>
